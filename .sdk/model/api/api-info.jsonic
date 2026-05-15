@@ -1,0 +1,36 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://ipapi.is/"
+      }
+      description: "ipapi.is provides a comprehensive API for obtaining detailed information on IP addresses, including geolocation, hosting provider data, and detection of VPNs, proxies, and abusive behavior. The API is designed for both developers and businesses, offering a user-friendly interface with a generous free tier for basic usage."
+      servers: [
+        {
+          description: "Main API server (routed via Azure Traffic Manager)"
+          url: "https://api.ipapi.is"
+        }
+        {
+          description: "US East server"
+          url: "https://us.ipapi.is"
+        }
+        {
+          description: "Central Europe (Germany) server"
+          url: "https://de.ipapi.is"
+        }
+        {
+          description: "Singapore/Asia server"
+          url: "https://sg.ipapi.is"
+        }
+      ]
+      termsOfService: "https://ipapi.is/"
+      title: "IP Data API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

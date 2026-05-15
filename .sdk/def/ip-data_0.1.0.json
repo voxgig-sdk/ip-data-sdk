@@ -1,0 +1,457 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP Data API",
+    "description": "ipapi.is provides a comprehensive API for obtaining detailed information on IP addresses, including geolocation, hosting provider data, and detection of VPNs, proxies, and abusive behavior. The API is designed for both developers and businesses, offering a user-friendly interface with a generous free tier for basic usage.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://ipapi.is/"
+    },
+    "termsOfService": "https://ipapi.is/"
+  },
+  "servers": [
+    {
+      "url": "https://api.ipapi.is",
+      "description": "Main API server (routed via Azure Traffic Manager)"
+    },
+    {
+      "url": "https://us.ipapi.is",
+      "description": "US East server"
+    },
+    {
+      "url": "https://de.ipapi.is",
+      "description": "Central Europe (Germany) server"
+    },
+    {
+      "url": "https://sg.ipapi.is",
+      "description": "Singapore/Asia server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get IP Address Information",
+        "description": "Query detailed information about any IPv4 or IPv6 address, including geolocation, hosting provider data, ASN information, and detection of VPNs, proxies, Tor nodes, and abusive behavior.",
+        "operationId": "getIpInfo",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The IP address (IPv4 or IPv6) or ASN to query. If not provided, returns information about the requester's IP address.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "23.236.48.55"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output format for the response",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "html",
+                "toon",
+                "text",
+                "csv"
+              ],
+              "default": "json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with IP address information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpInfoResponse"
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Example IP lookup response",
+                    "value": {
+                      "ip": "23.236.48.55",
+                      "rir": "ARIN",
+                      "is_bogon": false,
+                      "is_mobile": false,
+                      "is_crawler": false,
+                      "is_datacenter": true,
+                      "is_tor": false,
+                      "is_proxy": false,
+                      "is_vpn": false,
+                      "is_abuser": false,
+                      "company": {
+                        "name": "Akamai Technologies Inc.",
+                        "abuser_score": "0.00",
+                        "domain": "akamai.com",
+                        "type": "hosting",
+                        "network": "23.0.0.0/8",
+                        "whois": "https://ipapi.is/whois/23.236.48.55"
+                      },
+                      "asn": {
+                        "asn": 20940,
+                        "route": "23.236.48.0/20",
+                        "descr": "AKAMAI-ASN1",
+                        "country": "US",
+                        "active": true,
+                        "org": "Akamai International B.V.",
+                        "domain": "akamai.com",
+                        "abuse": "abuse@akamai.com",
+                        "type": "hosting",
+                        "created": "2001-09-25",
+                        "updated": "2023-08-03",
+                        "rir": "ARIN",
+                        "whois": "https://ipapi.is/whois/AS20940"
+                      },
+                      "location": {
+                        "continent": "NA",
+                        "country": "US",
+                        "country_name": "United States",
+                        "state": "California",
+                        "city": "Los Angeles",
+                        "latitude": 34.0522,
+                        "longitude": -118.2437,
+                        "zip": "90001",
+                        "timezone": "America/Los_Angeles",
+                        "local_time": "2023-08-15T10:30:00-07:00",
+                        "local_time_unix": 1692122400,
+                        "is_dst": true
+                      },
+                      "elapsed_ms": 1.02
+                    }
+                  }
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid IP address or parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {}
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IpInfoResponse": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "The queried IP address"
+          },
+          "rir": {
+            "type": "string",
+            "description": "Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC)",
+            "enum": [
+              "ARIN",
+              "APNIC",
+              "RIPE",
+              "AFRINIC",
+              "LACNIC"
+            ]
+          },
+          "is_bogon": {
+            "type": "boolean",
+            "description": "Whether the IP is a bogon (reserved/private IP)"
+          },
+          "is_mobile": {
+            "type": "boolean",
+            "description": "Whether the IP is from a mobile network"
+          },
+          "is_crawler": {
+            "type": "boolean",
+            "description": "Whether the IP is from a known web crawler"
+          },
+          "is_datacenter": {
+            "type": "boolean",
+            "description": "Whether the IP is from a datacenter or hosting provider"
+          },
+          "is_tor": {
+            "type": "boolean",
+            "description": "Whether the IP is a Tor exit node"
+          },
+          "is_proxy": {
+            "type": "boolean",
+            "description": "Whether the IP is a known proxy"
+          },
+          "is_vpn": {
+            "type": "boolean",
+            "description": "Whether the IP is from a VPN service"
+          },
+          "is_abuser": {
+            "type": "boolean",
+            "description": "Whether the IP has been involved in malicious activities"
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "asn": {
+            "$ref": "#/components/schemas/ASN"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "elapsed_ms": {
+            "type": "number",
+            "description": "API processing time in milliseconds"
+          }
+        }
+      },
+      "Company": {
+        "type": "object",
+        "description": "Information about the organization that owns the IP address (from WHOIS data)",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the organization owning the IP"
+          },
+          "abuser_score": {
+            "type": "string",
+            "description": "Abuse score for the organization"
+          },
+          "domain": {
+            "type": "string",
+            "description": "Domain name of the organization"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of organization",
+            "enum": [
+              "isp",
+              "hosting",
+              "business",
+              "education",
+              "government"
+            ]
+          },
+          "network": {
+            "type": "string",
+            "description": "Network range in CIDR notation"
+          },
+          "whois": {
+            "type": "string",
+            "description": "URL to WHOIS information"
+          }
+        }
+      },
+      "ASN": {
+        "type": "object",
+        "description": "Information about the autonomous system that routes the IP address",
+        "properties": {
+          "asn": {
+            "type": "integer",
+            "description": "Autonomous System Number"
+          },
+          "route": {
+            "type": "string",
+            "description": "Route or prefix in CIDR notation"
+          },
+          "descr": {
+            "type": "string",
+            "description": "Description of the ASN"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code of the ASN"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the ASN is currently active"
+          },
+          "org": {
+            "type": "string",
+            "description": "Organization name associated with the ASN"
+          },
+          "domain": {
+            "type": "string",
+            "description": "Domain of the organization"
+          },
+          "abuse": {
+            "type": "string",
+            "description": "Abuse contact email"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of ASN",
+            "enum": [
+              "isp",
+              "hosting",
+              "business",
+              "education",
+              "government"
+            ]
+          },
+          "created": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the ASN was created"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the ASN was last updated"
+          },
+          "rir": {
+            "type": "string",
+            "description": "Regional Internet Registry"
+          },
+          "whois": {
+            "type": "string",
+            "description": "URL to ASN WHOIS information"
+          }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "description": "Geographic location information for the IP address",
+        "properties": {
+          "continent": {
+            "type": "string",
+            "description": "Continent code (e.g., NA, EU, AS)"
+          },
+          "country": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code"
+          },
+          "country_name": {
+            "type": "string",
+            "description": "Full country name"
+          },
+          "state": {
+            "type": "string",
+            "description": "State or region name"
+          },
+          "city": {
+            "type": "string",
+            "description": "City name"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude coordinate"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude coordinate"
+          },
+          "zip": {
+            "type": "string",
+            "description": "Postal/ZIP code"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "IANA timezone identifier"
+          },
+          "local_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Local time in ISO 8601 format"
+          },
+          "local_time_unix": {
+            "type": "integer",
+            "description": "Local time as Unix timestamp"
+          },
+          "is_dst": {
+            "type": "boolean",
+            "description": "Whether daylight saving time is active"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "key",
+        "description": "API key for authentication. Free tier provides 1,000 requests per day. Sign up at https://ipapi.is/ to get your API key."
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "IP Lookup",
+      "description": "IP address information and intelligence"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://ipapi.is/"
+  }
+}
