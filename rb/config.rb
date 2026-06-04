@@ -15,9 +15,6 @@ module IpDataConfig
       },
       "options" => {
         "base" => "https://api.ipapi.is",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

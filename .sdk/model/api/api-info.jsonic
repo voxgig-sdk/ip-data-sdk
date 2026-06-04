@@ -29,8 +29,29 @@ main: {
       termsOfService: "https://ipapi.is/"
       title: "IP Data API"
       version: "1.0.0"
+      tagline: "Look up geolocation, ASN, hosting, VPN/proxy/Tor, and abuse signals for any IP address"
+      homepage: "https://ipapi.is/"
+      docs_url: "https://ipapi.is/"
+      license_short: "Free tier of 1,000 requests/day; paid plans for higher volume. See ipapi.is terms."
+      license_md: `- Free plan offers 1,000 daily requests with no signup required for basic usage
+- Paid plans available; purchased credits remain valid indefinitely
+- Terms and privacy policy at https://ipapi.is/terms.html and https://ipapi.is/privacy.html
+- WHOIS-sourced data attributed to the five Regional Internet Registries`
+      about_md: `[ipapi.is](https://ipapi.is/) is an IP intelligence API that returns geolocation, network ownership, and risk signals for any IPv4 or IPv6 address. The service sources its ownership data from the five Regional Internet Registries (RIRs) via WHOIS and combines it with detection heuristics for hosting, anonymization, and abuse.
+
+What you get from the API:
+
+- IP metadata flags including \`bogon\`, \`mobile\`, \`satellite\`, and \`crawler\` status
+- Detection of datacenter, VPN, proxy, and Tor exit nodes
+- Company and ASN details with abuser scores, network range, and routing information
+- Geolocation including country, state, city, latitude, longitude, timezone, and local time
+- Abuse contact information (name, address, email) drawn from WHOIS records
+
+The primary endpoint is \`GET https://api.ipapi.is/?q={ip}\` and responses are available in JSON, HTML, Toon, text, or CSV. Bulk lookups of up to 100 IPs per call are supported on standard plans (up to 1,000 per call on higher tiers). CORS is enabled.`
+      entity_desc: {
+        get_ip_info: "Returns the full IP intelligence record — geolocation, ASN/company, hosting and anonymization flags, and abuse signals — via `GET /?q={ip}`."
+      }
+      auth: false
     }
   }
-}
-
 }

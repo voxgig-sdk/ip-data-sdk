@@ -99,14 +99,12 @@ func get_ip_infoDirectSetup(mockres any) *get_ip_infoDirectSetupResult {
 	env := envOverride(map[string]any{
 		"IPDATA_TEST_GET_IP_INFO_ENTID": map[string]any{},
 		"IPDATA_TEST_LIVE":    "FALSE",
-		"IPDATA_APIKEY":       "NONE",
 	})
 
 	live := env["IPDATA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IPDATA_APIKEY"],
 		}
 		client := sdk.NewIpDataSDK(mergedOpts)
 
