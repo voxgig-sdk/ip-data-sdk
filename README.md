@@ -1,22 +1,8 @@
 # IpData SDK
 
-Look up geolocation, ASN, hosting, VPN/proxy/Tor, and abuse signals for any IP address
+IP Data API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About IP Data API
-
-[ipapi.is](https://ipapi.is/) is an IP intelligence API that returns geolocation, network ownership, and risk signals for any IPv4 or IPv6 address. The service sources its ownership data from the five Regional Internet Registries (RIRs) via WHOIS and combines it with detection heuristics for hosting, anonymization, and abuse.
-
-What you get from the API:
-
-- IP metadata flags including `bogon`, `mobile`, `satellite`, and `crawler` status
-- Detection of datacenter, VPN, proxy, and Tor exit nodes
-- Company and ASN details with abuser scores, network range, and routing information
-- Geolocation including country, state, city, latitude, longitude, timezone, and local time
-- Abuse contact information (name, address, email) drawn from WHOIS records
-
-The primary endpoint is `GET https://api.ipapi.is/?q={ip}` and responses are available in JSON, HTML, Toon, text, or CSV. Bulk lookups of up to 100 IPs per call are supported on standard plans (up to 1,000 per call on higher tiers). CORS is enabled.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install ip-data-sdk
 luarocks install ip-data-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { IpDataSDK } from 'ip-data'
 
-const client = new IpDataSDK({})
+const client = new IpDataSDK({
+  apikey: process.env.IP-DATA_APIKEY,
+})
 
+// Load getipinfo data
+const getipinfo = await client.GetIpInfo().load({})
+console.log(getipinfo.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetIpInfo** | Returns the full IP intelligence record — geolocation, ASN/company, hosting and anonymization flags, and abuse signals — via `GET /?q={ip}`. | `/` |
+| **GetIpInfo** |  | `/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from ipdata_sdk import IpDataSDK
 
-client = IpDataSDK({})
+client = IpDataSDK({
+    "apikey": os.environ.get("IP-DATA_APIKEY"),
+})
 
 
 # Load a specific getipinfo
-getipinfo, err = client.GetIpInfo(None).load(
-    {"id": "example_id"}, None
-)
+getipinfo, err = client.GetIpInfo().load({"id": "example_id"})
+print(getipinfo)
 ```
 
 ### PHP
@@ -127,13 +119,14 @@ getipinfo, err = client.GetIpInfo(None).load(
 <?php
 require_once 'ipdata_sdk.php';
 
-$client = new IpDataSDK([]);
+$client = new IpDataSDK([
+    "apikey" => getenv("IP-DATA_APIKEY"),
+]);
 
 
 // Load a specific getipinfo
-[$getipinfo, $err] = $client->GetIpInfo(null)->load(
-    ["id" => "example_id"], null
-);
+[$getipinfo, $err] = $client->GetIpInfo()->load(["id" => "example_id"]);
+print_r($getipinfo);
 ```
 
 ### Golang
@@ -141,8 +134,13 @@ $client = new IpDataSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/ip-data-sdk/go"
 
-client := sdk.NewIpDataSDK(map[string]any{})
+client := sdk.NewIpDataSDK(map[string]any{
+    "apikey": os.Getenv("IP-DATA_APIKEY"),
+})
 
+// Load getipinfo data
+getipinfo, err := client.GetIpInfo(nil).Load(map[string]any{}, nil)
+fmt.Println(getipinfo)
 ```
 
 ### Ruby
@@ -150,13 +148,14 @@ client := sdk.NewIpDataSDK(map[string]any{})
 ```ruby
 require_relative "IpData_sdk"
 
-client = IpDataSDK.new({})
+client = IpDataSDK.new({
+  "apikey" => ENV["IP-DATA_APIKEY"],
+})
 
 
 # Load a specific getipinfo
-getipinfo, err = client.GetIpInfo(nil).load(
-  { "id" => "example_id" }, nil
-)
+getipinfo, err = client.GetIpInfo().load({ "id" => "example_id" })
+puts getipinfo
 ```
 
 ### Lua
@@ -164,13 +163,14 @@ getipinfo, err = client.GetIpInfo(nil).load(
 ```lua
 local sdk = require("ip-data_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("IP-DATA_APIKEY"),
+})
 
 
 -- Load a specific getipinfo
-local getipinfo, err = client:GetIpInfo(nil):load(
-  { id = "example_id" }, nil
-)
+local getipinfo, err = client:GetIpInfo():load({ id = "example_id" })
+print(getipinfo)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +189,21 @@ const result = await client.GetIpInfo().load({ id: 'test01' })
 ### Python
 
 ```python
-client = IpDataSDK.test(None, None)
-result, err = client.GetIpInfo(None).load(
-    {"id": "test01"}, None
-)
+client = IpDataSDK.test()
+result, err = client.GetIpInfo().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = IpDataSDK::test(null, null);
-[$result, $err] = $client->GetIpInfo(null)->load(
-    ["id" => "test01"], null
-);
+$client = IpDataSDK::test();
+[$result, $err] = $client->GetIpInfo()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetIpInfo(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +212,15 @@ result, err := client.GetIpInfo(nil).Load(
 ### Ruby
 
 ```ruby
-client = IpDataSDK.test(nil, nil)
-result, err = client.GetIpInfo(nil).load(
-  { "id" => "test01" }, nil
-)
+client = IpDataSDK.test
+result, err = client.GetIpInfo().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetIpInfo(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetIpInfo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the IP Data API
-
-- Upstream: [https://ipapi.is/](https://ipapi.is/)
-
-- Free plan offers 1,000 daily requests with no signup required for basic usage
-- Paid plans available; purchased credits remain valid indefinitely
-- Terms and privacy policy at https://ipapi.is/terms.html and https://ipapi.is/privacy.html
-- WHOIS-sourced data attributed to the five Regional Internet Registries
 
 ---
 

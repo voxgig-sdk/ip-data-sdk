@@ -1,9 +1,295 @@
 {
-  "name": "ip-data",
-  "origin": "voxgig-sdk",
   "def": "ip-data_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "get_ip_info": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "asn",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "company",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "elapsed_m",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "ip",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "is_abuser",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_bogon",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_crawler",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_datacenter",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_mobile",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_proxy",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_tor",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_vpn",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "location",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "rir",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "name": "get_ip_info",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "example": "json",
+                        "kind": "query",
+                        "name": "format",
+                        "orig": "format",
+                        "reqd": false,
+                        "type": "`$STRING`"
+                      },
+                      {
+                        "active": true,
+                        "example": "23.236.48.55",
+                        "kind": "query",
+                        "name": "q",
+                        "orig": "q",
+                        "reqd": false,
+                        "type": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/",
+                  "parts": [],
+                  "select": {
+                    "exist": [
+                      "format",
+                      "q"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicGetIpInfoFlow": {
+          "active": true,
+          "entity": "get_ip_info",
+          "key$": "BasicGetIpInfoFlow",
+          "kind": "basic",
+          "name": "BasicGetIpInfoFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "get_ip_info_ref01",
+                "srcdatavar": "get_ip_info_ref01_data",
+                "suffix": "_dt0"
+              },
+              "match": {},
+              "op": "load",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-get_ip_info_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "info": {
         "contact": {
           "url": "https://ipapi.is/"
@@ -29,311 +315,35 @@
         ],
         "termsOfService": "https://ipapi.is/",
         "title": "IP Data API",
-        "version": "1.0.0",
-        "tagline": "Look up geolocation, ASN, hosting, VPN/proxy/Tor, and abuse signals for any IP address",
-        "homepage": "https://ipapi.is/",
-        "docs_url": "https://ipapi.is/",
-        "license_short": "Free tier of 1,000 requests/day; paid plans for higher volume. See ipapi.is terms.",
-        "license_md": "- Free plan offers 1,000 daily requests with no signup required for basic usage\n- Paid plans available; purchased credits remain valid indefinitely\n- Terms and privacy policy at https://ipapi.is/terms.html and https://ipapi.is/privacy.html\n- WHOIS-sourced data attributed to the five Regional Internet Registries",
-        "about_md": "[ipapi.is](https://ipapi.is/) is an IP intelligence API that returns geolocation, network ownership, and risk signals for any IPv4 or IPv6 address. The service sources its ownership data from the five Regional Internet Registries (RIRs) via WHOIS and combines it with detection heuristics for hosting, anonymization, and abuse.\n\nWhat you get from the API:\n\n- IP metadata flags including `bogon`, `mobile`, `satellite`, and `crawler` status\n- Detection of datacenter, VPN, proxy, and Tor exit nodes\n- Company and ASN details with abuser scores, network range, and routing information\n- Geolocation including country, state, city, latitude, longitude, timezone, and local time\n- Abuse contact information (name, address, email) drawn from WHOIS records\n\nThe primary endpoint is `GET https://api.ipapi.is/?q={ip}` and responses are available in JSON, HTML, Toon, text, or CSV. Bulk lookups of up to 100 IPs per call are supported on standard plans (up to 1,000 per call on higher tiers). CORS is enabled.",
-        "entity_desc": {
-          "get_ip_info": "Returns the full IP intelligence record — geolocation, ASN/company, hosting and anonymization flags, and abuse signals — via `GET /?q={ip}`."
-        },
-        "auth": false
+        "version": "1.0.0"
       },
-      "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
-        },
-        "docs_order": [
-          "ts",
-          "py",
-          "php",
-          "go",
-          "rb",
-          "lua"
-        ]
-      },
-      "entity": {
-        "get_ip_info": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "asn",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "company",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "elapsed_m",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "ip",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "is_abuser",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_bogon",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_crawler",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_datacenter",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_mobile",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_proxy",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_tor",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "is_vpn",
-              "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
-            },
-            {
-              "name": "location",
-              "req": false,
-              "type": "`$OBJECT`",
-              "active": true
-            },
-            {
-              "name": "rir",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "name": "get_ip_info",
-          "op": {
-            "load": {
-              "name": "load",
-              "points": [
-                {
-                  "args": {
-                    "query": [
-                      {
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
-                      },
-                      {
-                        "example": "23.236.48.55",
-                        "kind": "query",
-                        "name": "q",
-                        "orig": "q",
-                        "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
-                      }
-                    ]
-                  },
-                  "method": "GET",
-                  "orig": "/",
-                  "select": {
-                    "exist": [
-                      "format",
-                      "q"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "parts": []
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        }
-      },
-      "feature": {
-        "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
-          "active": true,
-          "config": {
-            "options": {
-              "active": false
-            }
-          },
-          "hook": {
-            "PostConstruct": {
-              "active": true,
-              "await": false
-            },
-            "PostConstructEntity": {
-              "active": true,
-              "await": false
-            },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
-              "await": false
-            },
-            "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
-              "active": true,
-              "await": false
-            },
-            "PreRequest": {
-              "active": true,
-              "await": false
-            },
-            "PreResponse": {
-              "active": true,
-              "await": false
-            },
-            "PreResult": {
-              "active": true,
-              "await": false
-            },
-            "PreTarget": {
-              "active": false,
-              "await": false
-            },
-            "PostOperation": {
-              "active": false,
-              "await": false
-            }
-          },
-          "target": {
-            "ts": {
-              "deps": {}
-            },
-            "go": {
-              "deps": {}
-            },
-            "lua": {
-              "deps": {}
-            },
-            "php": {
-              "deps": {}
-            },
-            "py": {
-              "deps": {}
-            },
-            "rb": {
-              "deps": {}
-            },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
-              "deps": {}
-            }
-          }
-        }
-      },
-      "flow": {
-        "BasicGetIpInfoFlow": {
-          "entity": "get_ip_info",
-          "kind": "basic",
-          "name": "BasicGetIpInfoFlow",
-          "step": [
-            {
-              "input": {
-                "ref": "get_ip_info_ref01",
-                "srcdatavar": "get_ip_info_ref01_data",
-                "suffix": "_dt0"
-              },
-              "op": "load",
-              "valid": [
-                {
-                  "apply": "TextFieldMark",
-                  "def": {
-                    "mark": "Mark01-get_ip_info_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicGetIpInfoFlow",
-          "active": true,
-          "param": {}
-        }
-      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "ip-data"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "ip-data"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -348,19 +358,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "ip-data"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -375,138 +385,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "ip-data"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "ip-data"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "ip-data"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "ip-data"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "ip-data"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "ip-data"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "ip-data"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "ip-data"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "ip-data"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "ip-data",
+  "origin": "voxgig-sdk"
 }

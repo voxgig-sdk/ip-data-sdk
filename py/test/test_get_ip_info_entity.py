@@ -91,6 +91,7 @@ def _get_ip_info_basic_setup(extra):
         "IPDATA_TEST_GET_IP_INFO_ENTID": idmap,
         "IPDATA_TEST_LIVE": "FALSE",
         "IPDATA_TEST_EXPLAIN": "FALSE",
+        "IPDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _get_ip_info_basic_setup(extra):
     if env.get("IPDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("IPDATA_APIKEY"),
             },
             extra or {},
         ])
