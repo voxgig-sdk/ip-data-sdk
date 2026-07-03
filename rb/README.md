@@ -10,13 +10,13 @@ The Ruby SDK for the IpData API — an entity-oriented client using idiomatic Ru
 
 ## Install
 ```bash
-gem install ip-data-sdk
+gem install voxgig-sdk-ip-data
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "ip-data-sdk"
+gem "voxgig-sdk-ip-data"
 ```
 
 Then run:

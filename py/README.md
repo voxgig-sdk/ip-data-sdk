@@ -10,7 +10,7 @@ The Python SDK for the IpData API — an entity-oriented client following Python
 
 ## Install
 ```bash
-pip install ip-data-sdk
+pip install voxgig-sdk-ip-data
 ```
 
 Or install from source:

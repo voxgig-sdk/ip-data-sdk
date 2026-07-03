@@ -10,7 +10,7 @@ The TypeScript SDK for the IpData API — a type-safe, entity-oriented client wi
 
 ## Install
 ```bash
-npm install ip-data
+npm install @voxgig-sdk/ip-data
 ```
 ## Tutorial: your first API call
 

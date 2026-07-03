@@ -10,7 +10,7 @@ The Lua SDK for the IpData API — an entity-oriented client using Lua conventio
 
 ## Install
 ```bash
-luarocks install ip-data-sdk
+luarocks install voxgig-sdk-ip-data
 ```
 
 If the module is not yet published, add the source directory to
