@@ -81,7 +81,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GetIpInfoEntity
 
 ```python
-get_ip_info = client.get_ip_info
+get_ip_info = client.GetIpInfo()
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ get_ip_info = client.get_ip_info
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.get_ip_info.load({"id": "get_ip_info_id"})
+result = client.GetIpInfo().load({"id": "get_ip_info_id"})
 ```
 
 ### Common Methods

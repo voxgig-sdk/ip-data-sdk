@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:get_ip_info():list() / client:get_ip_info():load({ id = ... })
-function IpDataSDK:get_ip_info(data)
+-- Idiomatic facade: client:GetIpInfo():list() / client:GetIpInfo():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function IpDataSDK:GetIpInfo(data)
   local EntityMod = require("entity.get_ip_info_entity")
   if data == nil then
     if self._get_ip_info == nil then
@@ -253,12 +254,6 @@ function IpDataSDK:get_ip_info(data)
     end
     return self._get_ip_info
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:get_ip_info() instead.
-function IpDataSDK:GetIpInfo(data)
-  local EntityMod = require("entity.get_ip_info_entity")
   return EntityMod.new(self, data)
 end
 

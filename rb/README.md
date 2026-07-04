@@ -34,8 +34,9 @@ client = IpDataSDK.new({
 
 ```ruby
 begin
-  result = client.getipinfo.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare GetIpInfo record (raises on error).
+  getipinfo = client.GetIpInfo.load({ "id" => "example_id" })
+  puts getipinfo
 rescue => err
   warn "load failed: #{err}"
 end
@@ -82,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = IpDataSDK.test
+client = IpDataSDK.test({
+  "entity" => { "getipinfo" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.getipinfo.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+getipinfo = client.GetIpInfo.load({ "id" => "test01" })
+puts getipinfo
 ```
 
 ### Use a custom fetch function
@@ -235,7 +240,7 @@ API path: `/`
 
 ### GetIpInfo
 
-Create an instance: `const get_ip_info = client.get_ip_info`
+Create an instance: `get_ip_info = client.GetIpInfo`
 
 #### Operations
 
@@ -264,8 +269,9 @@ Create an instance: `const get_ip_info = client.get_ip_info`
 
 #### Example: Load
 
-```ts
-const get_ip_info = await client.get_ip_info.load({ id: 'get_ip_info_id' })
+```ruby
+# load returns the bare GetIpInfo record (raises on error).
+get_ip_info = client.GetIpInfo.load({ "id" => "get_ip_info_id" })
 ```
 
 
@@ -340,7 +346,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-getipinfo = client.getipinfo
+getipinfo = client.GetIpInfo
 getipinfo.load({ "id" => "example_id" })
 
 # getipinfo.data_get now returns the loaded getipinfo data

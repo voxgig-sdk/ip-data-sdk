@@ -204,14 +204,7 @@ class IpDataSDK {
 
 
 
-  _get_ip_info?: GetIpInfoEntity
-
-  // Idiomatic facade: `client.get_ip_info.list()` / `client.get_ip_info.load({ id })`.
-  get get_ip_info(): GetIpInfoEntity {
-    return (this._get_ip_info ??= new GetIpInfoEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_ip_info` instead. */
+  // Entity access: `client.GetIpInfo().list()` / `client.GetIpInfo().load({ id })`.
   GetIpInfo(data?: any) {
     const self = this
     return new GetIpInfoEntity(self,data)

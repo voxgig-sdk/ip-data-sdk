@@ -208,13 +208,7 @@ class IpDataSDK
   end
 
 
-  # Idiomatic facade: client.get_ip_info.list / client.get_ip_info.load({ "id" => ... })
-  def get_ip_info
-    require_relative 'entity/get_ip_info_entity'
-    @get_ip_info ||= GetIpInfoEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_ip_info instead.
+  # Canonical facade: client.GetIpInfo.list / client.GetIpInfo.load({ "id" => ... })
   def GetIpInfo(data = nil)
     require_relative 'entity/get_ip_info_entity'
     GetIpInfoEntity.new(self, data)

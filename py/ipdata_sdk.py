@@ -220,25 +220,15 @@ class IpDataSDK:
         }
 
 
-    @property
-    def get_ip_info(self):
-        """Idiomatic facade: client.get_ip_info.list() / client.get_ip_info.load({"id": ...})."""
-        from entity.get_ip_info_entity import GetIpInfoEntity
-        cached = getattr(self, "_get_ip_info", None)
-        if cached is None:
-            cached = GetIpInfoEntity(self, None)
-            self._get_ip_info = cached
-        return cached
-
-    def GetIpInfo(self, data=None):
-        # Deprecated: use client.get_ip_info instead.
+    def GetIpInfo(self, data=None) -> "GetIpInfoEntity":
+        """Entity factory: client.GetIpInfo().list({}) / client.GetIpInfo().load({"id": ...})."""
         from entity.get_ip_info_entity import GetIpInfoEntity
         return GetIpInfoEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "IpDataSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class IpDataSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_ip_info_entity import GetIpInfoEntity

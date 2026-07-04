@@ -86,7 +86,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GetIpInfoEntity
 
 ```php
-$get_ip_info = $client->get_ip_info();
+$get_ip_info = $client->GetIpInfo();
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ $get_ip_info = $client->get_ip_info();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->get_ip_info()->load(["id" => "get_ip_info_id"]);
+$result = $client->GetIpInfo()->load(["id" => "get_ip_info_id"]);
 ```
 
 ### Common Methods
