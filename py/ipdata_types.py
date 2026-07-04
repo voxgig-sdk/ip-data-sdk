@@ -1,0 +1,48 @@
+# Typed models for the IpData SDK.
+#
+# GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
+# params (op.<name>.points[].args.params[]). Field/param types come from the
+# canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+# @voxgig/apidef VALID_CANON). Do not edit by hand.
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Optional, Any
+
+
+@dataclass
+class GetIpInfo:
+    asn: Optional[dict] = None
+    company: Optional[dict] = None
+    elapsed_m: Optional[float] = None
+    ip: Optional[str] = None
+    is_abuser: Optional[bool] = None
+    is_bogon: Optional[bool] = None
+    is_crawler: Optional[bool] = None
+    is_datacenter: Optional[bool] = None
+    is_mobile: Optional[bool] = None
+    is_proxy: Optional[bool] = None
+    is_tor: Optional[bool] = None
+    is_vpn: Optional[bool] = None
+    location: Optional[dict] = None
+    rir: Optional[str] = None
+
+
+@dataclass
+class GetIpInfoLoadMatch:
+    asn: Optional[dict] = None
+    company: Optional[dict] = None
+    elapsed_m: Optional[float] = None
+    ip: Optional[str] = None
+    is_abuser: Optional[bool] = None
+    is_bogon: Optional[bool] = None
+    is_crawler: Optional[bool] = None
+    is_datacenter: Optional[bool] = None
+    is_mobile: Optional[bool] = None
+    is_proxy: Optional[bool] = None
+    is_tor: Optional[bool] = None
+    is_vpn: Optional[bool] = None
+    location: Optional[dict] = None
+    rir: Optional[str] = None
+

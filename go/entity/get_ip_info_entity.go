@@ -85,6 +85,27 @@ func (e *GetIpInfoEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GetIpInfo; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GetIpInfoEntity) DataTyped(data ...GetIpInfo) GetIpInfo {
+	if len(data) > 0 {
+		return typedFrom[GetIpInfo](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GetIpInfo](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GetIpInfo (all fields
+// optional at the wire level).
+func (e *GetIpInfoEntity) MatchTyped(match ...GetIpInfo) GetIpInfo {
+	if len(match) > 0 {
+		return typedFrom[GetIpInfo](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GetIpInfo](e.Match())
+}
+
 
 func (e *GetIpInfoEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *GetIpInfoEntity) Load(reqmatch map[string]any, ctrl map[string]any) (an
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// GetIpInfoLoadMatch and returns an GetIpInfo. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *GetIpInfoEntity) LoadTyped(reqmatch GetIpInfoLoadMatch, ctrl map[string]any) (GetIpInfo, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return GetIpInfo{}, err
+	}
+	return typedFrom[GetIpInfo](res), nil
 }
 
 

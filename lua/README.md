@@ -9,12 +9,9 @@ The Lua SDK for the IpData API — an entity-oriented client using Lua conventio
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-ip-data
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/ip-data-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -32,14 +29,14 @@ loading a specific record.
 local sdk = require("ip-data_sdk")
 
 local client = sdk.new({
-  apikey = os.getenv("IP-DATA_APIKEY"),
+  apikey = os.getenv("IP_DATA_APIKEY"),
 })
 ```
 
 ### 3. Load a getipinfo
 
 ```lua
-local result, err = client:GetIpInfo():load({ id = "example_id" })
+local result, err = client:getipinfo():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:IpData():load({ id = "test01" })
+local result, err = client:getipinfo():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +117,8 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-IP-DATA_TEST_LIVE=TRUE
-IP-DATA_APIKEY=<your-key>
+IP_DATA_TEST_LIVE=TRUE
+IP_DATA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -234,7 +231,7 @@ API path: `/`
 
 ### GetIpInfo
 
-Create an instance: `const get_ip_info = client.GetIpInfo()`
+Create an instance: `const get_ip_info = client.get_ip_info`
 
 #### Operations
 
@@ -264,7 +261,7 @@ Create an instance: `const get_ip_info = client.GetIpInfo()`
 #### Example: Load
 
 ```ts
-const get_ip_info = await client.GetIpInfo().load({ id: 'get_ip_info_id' })
+const get_ip_info = await client.get_ip_info.load({ id: 'get_ip_info_id' })
 ```
 
 
@@ -339,11 +336,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local getipinfo = client:getipinfo()
+getipinfo:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- getipinfo:data_get() now returns the loaded getipinfo data
+-- getipinfo:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

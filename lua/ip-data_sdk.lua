@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:get_ip_info():list() / client:get_ip_info():load({ id = ... })
+function IpDataSDK:get_ip_info(data)
+  local EntityMod = require("entity.get_ip_info_entity")
+  if data == nil then
+    if self._get_ip_info == nil then
+      self._get_ip_info = EntityMod.new(self, nil)
+    end
+    return self._get_ip_info
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_ip_info() instead.
 function IpDataSDK:GetIpInfo(data)
   local EntityMod = require("entity.get_ip_info_entity")
   return EntityMod.new(self, data)

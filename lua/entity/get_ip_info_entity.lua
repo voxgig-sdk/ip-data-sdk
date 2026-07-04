@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GetIpInfoLoadMatch
+---@param ctrl? table
+---@return GetIpInfo
+---@return string? err
 function GetIpInfoEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

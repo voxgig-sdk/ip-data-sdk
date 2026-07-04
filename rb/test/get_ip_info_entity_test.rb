@@ -42,8 +42,7 @@ class GetIpInfoEntityTest < Minitest::Test
     # LOAD
     get_ip_info_ref01_ent = client.GetIpInfo(nil)
     get_ip_info_ref01_match_dt0 = {}
-    get_ip_info_ref01_data_dt0_loaded, err = get_ip_info_ref01_ent.load(get_ip_info_ref01_match_dt0, nil)
-    assert_nil err
+    get_ip_info_ref01_data_dt0_loaded = get_ip_info_ref01_ent.load(get_ip_info_ref01_match_dt0, nil)
     assert !get_ip_info_ref01_data_dt0_loaded.nil?
 
   end
