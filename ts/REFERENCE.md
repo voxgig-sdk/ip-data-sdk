@@ -117,20 +117,20 @@ const get_ip_info = client.GetIpInfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `elapsed_m` | ``$NUMBER`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `is_abuser` | ``$BOOLEAN`` | No |  |
-| `is_bogon` | ``$BOOLEAN`` | No |  |
-| `is_crawler` | ``$BOOLEAN`` | No |  |
-| `is_datacenter` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `is_proxy` | ``$BOOLEAN`` | No |  |
-| `is_tor` | ``$BOOLEAN`` | No |  |
-| `is_vpn` | ``$BOOLEAN`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `rir` | ``$STRING`` | No |  |
+| `asn` | `Record<string, any>` | No |  |
+| `company` | `Record<string, any>` | No |  |
+| `elapsed_m` | `number` | No |  |
+| `ip` | `string` | No |  |
+| `is_abuser` | `boolean` | No |  |
+| `is_bogon` | `boolean` | No |  |
+| `is_crawler` | `boolean` | No |  |
+| `is_datacenter` | `boolean` | No |  |
+| `is_mobile` | `boolean` | No |  |
+| `is_proxy` | `boolean` | No |  |
+| `is_tor` | `boolean` | No |  |
+| `is_vpn` | `boolean` | No |  |
+| `location` | `Record<string, any>` | No |  |
+| `rir` | `string` | No |  |
 
 ### Operations
 
@@ -139,7 +139,7 @@ const get_ip_info = client.GetIpInfo()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetIpInfo().load({ id: 'get_ip_info_id' })
+const result = await client.GetIpInfo().load()
 ```
 
 ### Common Methods

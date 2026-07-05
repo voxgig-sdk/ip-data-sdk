@@ -31,7 +31,7 @@ class GetIpInfo
     public ?string $rir = null;
 }
 
-/** Match filter for GetIpInfo#load (any subset of GetIpInfo fields). */
+/** Request payload for GetIpInfo#load. */
 class GetIpInfoLoadMatch
 {
     public ?array $asn = null;

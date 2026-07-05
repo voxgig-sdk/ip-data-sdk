@@ -23,6 +23,20 @@
 ---@field rir? string
 
 ---@class GetIpInfoLoadMatch
+---@field asn? table
+---@field company? table
+---@field elapsed_m? number
+---@field ip? string
+---@field is_abuser? boolean
+---@field is_bogon? boolean
+---@field is_crawler? boolean
+---@field is_datacenter? boolean
+---@field is_mobile? boolean
+---@field is_proxy? boolean
+---@field is_tor? boolean
+---@field is_vpn? boolean
+---@field location? table
+---@field rir? string
 
 local M = {}
 

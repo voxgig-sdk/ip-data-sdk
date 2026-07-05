@@ -69,7 +69,7 @@ GetIpInfo = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetIpInfo#load (any subset of GetIpInfo fields).
+# Request payload for GetIpInfo#load.
 #
 # @!attribute [rw] asn
 #   @return [Hash, nil]

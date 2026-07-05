@@ -221,7 +221,7 @@ class IpDataSDK:
 
 
     def GetIpInfo(self, data=None) -> "GetIpInfoEntity":
-        """Entity factory: client.GetIpInfo().list({}) / client.GetIpInfo().load({"id": ...})."""
+        """Entity factory: client.GetIpInfo().list() / client.GetIpInfo().load({"id": ...})."""
         from entity.get_ip_info_entity import GetIpInfoEntity
         return GetIpInfoEntity(self, data)
 

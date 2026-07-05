@@ -8,7 +8,7 @@ Complete API reference for the IpData Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'ip-data_sdk'
+require_relative 'IpData_sdk'
 
 client = IpDataSDK.new(options)
 ```
@@ -94,20 +94,20 @@ get_ip_info = client.GetIpInfo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `elapsed_m` | ``$NUMBER`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `is_abuser` | ``$BOOLEAN`` | No |  |
-| `is_bogon` | ``$BOOLEAN`` | No |  |
-| `is_crawler` | ``$BOOLEAN`` | No |  |
-| `is_datacenter` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `is_proxy` | ``$BOOLEAN`` | No |  |
-| `is_tor` | ``$BOOLEAN`` | No |  |
-| `is_vpn` | ``$BOOLEAN`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `rir` | ``$STRING`` | No |  |
+| `asn` | `Hash` | No |  |
+| `company` | `Hash` | No |  |
+| `elapsed_m` | `Float` | No |  |
+| `ip` | `String` | No |  |
+| `is_abuser` | `Boolean` | No |  |
+| `is_bogon` | `Boolean` | No |  |
+| `is_crawler` | `Boolean` | No |  |
+| `is_datacenter` | `Boolean` | No |  |
+| `is_mobile` | `Boolean` | No |  |
+| `is_proxy` | `Boolean` | No |  |
+| `is_tor` | `Boolean` | No |  |
+| `is_vpn` | `Boolean` | No |  |
+| `location` | `Hash` | No |  |
+| `rir` | `String` | No |  |
 
 ### Operations
 
@@ -116,7 +116,7 @@ get_ip_info = client.GetIpInfo
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GetIpInfo.load({ "id" => "get_ip_info_id" })
+result = client.GetIpInfo.load()
 ```
 
 ### Common Methods

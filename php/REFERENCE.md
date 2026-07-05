@@ -8,7 +8,7 @@ Complete API reference for the IpData PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/ip-data_sdk.php';
+require_once __DIR__ . '/ipdata_sdk.php';
 
 $client = new IpDataSDK($options);
 ```
@@ -46,11 +46,11 @@ $client = IpDataSDK::test();
 
 Create a new `GetIpInfoEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): IpDataUtility`
 
 Return a copy of the SDK utility object.
 
@@ -93,20 +93,20 @@ $get_ip_info = $client->GetIpInfo();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `elapsed_m` | ``$NUMBER`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `is_abuser` | ``$BOOLEAN`` | No |  |
-| `is_bogon` | ``$BOOLEAN`` | No |  |
-| `is_crawler` | ``$BOOLEAN`` | No |  |
-| `is_datacenter` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `is_proxy` | ``$BOOLEAN`` | No |  |
-| `is_tor` | ``$BOOLEAN`` | No |  |
-| `is_vpn` | ``$BOOLEAN`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `rir` | ``$STRING`` | No |  |
+| `asn` | `array` | No |  |
+| `company` | `array` | No |  |
+| `elapsed_m` | `float` | No |  |
+| `ip` | `string` | No |  |
+| `is_abuser` | `bool` | No |  |
+| `is_bogon` | `bool` | No |  |
+| `is_crawler` | `bool` | No |  |
+| `is_datacenter` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `is_proxy` | `bool` | No |  |
+| `is_tor` | `bool` | No |  |
+| `is_vpn` | `bool` | No |  |
+| `location` | `array` | No |  |
+| `rir` | `string` | No |  |
 
 ### Operations
 
@@ -115,24 +115,24 @@ $get_ip_info = $client->GetIpInfo();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GetIpInfo()->load(["id" => "get_ip_info_id"]);
+$result = $client->GetIpInfo()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -141,7 +141,7 @@ Set the entity match criteria.
 Create a new `GetIpInfoEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

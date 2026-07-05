@@ -98,20 +98,20 @@ get_ip_info := client.GetIpInfo(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `elapsed_m` | ``$NUMBER`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `is_abuser` | ``$BOOLEAN`` | No |  |
-| `is_bogon` | ``$BOOLEAN`` | No |  |
-| `is_crawler` | ``$BOOLEAN`` | No |  |
-| `is_datacenter` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `is_proxy` | ``$BOOLEAN`` | No |  |
-| `is_tor` | ``$BOOLEAN`` | No |  |
-| `is_vpn` | ``$BOOLEAN`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `rir` | ``$STRING`` | No |  |
+| `asn` | `map[string]any` | No |  |
+| `company` | `map[string]any` | No |  |
+| `elapsed_m` | `float64` | No |  |
+| `ip` | `string` | No |  |
+| `is_abuser` | `bool` | No |  |
+| `is_bogon` | `bool` | No |  |
+| `is_crawler` | `bool` | No |  |
+| `is_datacenter` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `is_proxy` | `bool` | No |  |
+| `is_tor` | `bool` | No |  |
+| `is_vpn` | `bool` | No |  |
+| `location` | `map[string]any` | No |  |
+| `rir` | `string` | No |  |
 
 ### Operations
 
@@ -120,7 +120,7 @@ get_ip_info := client.GetIpInfo(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GetIpInfo(nil).Load(map[string]any{"id": "get_ip_info_id"}, nil)
+result, err := client.GetIpInfo(nil).Load(nil, nil)
 ```
 
 ### Common Methods

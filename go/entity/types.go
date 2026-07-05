@@ -26,8 +26,7 @@ type GetIpInfo struct {
 	Rir *string `json:"rir,omitempty"`
 }
 
-// GetIpInfoLoadMatch mirrors the get_ip_info fields as an all-optional match
-// filter (Go analog of Partial<GetIpInfo>).
+// GetIpInfoLoadMatch is the typed request payload for GetIpInfo.LoadTyped.
 type GetIpInfoLoadMatch struct {
 	Asn *map[string]any `json:"asn,omitempty"`
 	Company *map[string]any `json:"company,omitempty"`

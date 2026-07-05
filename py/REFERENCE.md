@@ -8,7 +8,7 @@ Complete API reference for the IpData Python SDK.
 ### Constructor
 
 ```python
-from ip-data_sdk import IpDataSDK
+from ipdata_sdk import IpDataSDK
 
 client = IpDataSDK(options)
 ```
@@ -88,20 +88,20 @@ get_ip_info = client.GetIpInfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `elapsed_m` | ``$NUMBER`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `is_abuser` | ``$BOOLEAN`` | No |  |
-| `is_bogon` | ``$BOOLEAN`` | No |  |
-| `is_crawler` | ``$BOOLEAN`` | No |  |
-| `is_datacenter` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `is_proxy` | ``$BOOLEAN`` | No |  |
-| `is_tor` | ``$BOOLEAN`` | No |  |
-| `is_vpn` | ``$BOOLEAN`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `rir` | ``$STRING`` | No |  |
+| `asn` | `dict` | No |  |
+| `company` | `dict` | No |  |
+| `elapsed_m` | `float` | No |  |
+| `ip` | `str` | No |  |
+| `is_abuser` | `bool` | No |  |
+| `is_bogon` | `bool` | No |  |
+| `is_crawler` | `bool` | No |  |
+| `is_datacenter` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `is_proxy` | `bool` | No |  |
+| `is_tor` | `bool` | No |  |
+| `is_vpn` | `bool` | No |  |
+| `location` | `dict` | No |  |
+| `rir` | `str` | No |  |
 
 ### Operations
 
@@ -110,7 +110,7 @@ get_ip_info = client.GetIpInfo()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GetIpInfo().load({"id": "get_ip_info_id"})
+result = client.GetIpInfo().load()
 ```
 
 ### Common Methods
