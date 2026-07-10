@@ -39,7 +39,7 @@ class Config {
     base: 'https://api.ipapi.is',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {

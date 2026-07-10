@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -295,6 +292,14 @@
           "url": "https://ipapi.is/"
         },
         "description": "ipapi.is provides a comprehensive API for obtaining detailed information on IP addresses, including geolocation, hosting provider data, and detection of VPNs, proxies, and abusive behavior. The API is designed for both developers and businesses, offering a user-friendly interface with a generous free tier for basic usage.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "query",
+          "name": "key",
+          "prefix": "",
+          "scheme": "ApiKeyAuth",
+          "type": "apiKey"
+        },
         "servers": [
           {
             "description": "Main API server (routed via Azure Traffic Manager)",
@@ -313,9 +318,11 @@
             "url": "https://sg.ipapi.is"
           }
         ],
+        "summary": "ipapi.is provides a comprehensive API for obtaining detailed information on IP addresses, including geolocation, hosting provider data, and detection of VPNs, proxies, and abusive behavior.",
         "termsOfService": "https://ipapi.is/",
         "title": "IP Data API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://ipapi.is/"
       },
       "option": {},
       "target": {
@@ -368,6 +375,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -418,6 +428,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

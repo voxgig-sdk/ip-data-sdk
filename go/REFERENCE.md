@@ -91,7 +91,8 @@ same parameters as `Direct()`.
 ## GetIpInfoEntity
 
 ```go
-get_ip_info := client.GetIpInfo(nil)
+getIpInfo := client.GetIpInfo(nil)
+fmt.Println(getIpInfo.GetName()) // "get_ip_info"
 ```
 
 ### Fields
@@ -121,6 +122,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetIpInfo(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

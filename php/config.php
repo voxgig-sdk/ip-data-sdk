@@ -21,7 +21,7 @@ class IpDataConfig
             "options" => [
                 "base" => "https://api.ipapi.is",
                 "auth" => [
-                    "prefix" => "Bearer",
+                    "prefix" => "",
                 ],
                 "headers" => [
           'content-type' => 'application/json',
