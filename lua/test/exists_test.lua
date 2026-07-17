@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- IpData SDK exists test
 
 local sdk = require("ip-data_sdk")
 
