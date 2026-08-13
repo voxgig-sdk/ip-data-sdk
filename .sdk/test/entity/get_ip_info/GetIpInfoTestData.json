@@ -4,7 +4,7 @@
       "GET_IP_INFO00": {
         "asn": {},
         "company": {},
-        "elapsed_m": 142,
+        "elapsed_ms": 142,
         "ip": "s8f",
         "is_abuser": true,
         "is_bogon": false,
@@ -21,7 +21,7 @@
       "GET_IP_INFO01": {
         "asn": {},
         "company": {},
-        "elapsed_m": 282,
+        "elapsed_ms": 282,
         "ip": "s11b",
         "is_abuser": true,
         "is_bogon": false,
@@ -38,7 +38,7 @@
       "GET_IP_INFO02": {
         "asn": {},
         "company": {},
-        "elapsed_m": 422,
+        "elapsed_ms": 422,
         "ip": "s1a7",
         "is_abuser": true,
         "is_bogon": false,
@@ -59,7 +59,7 @@
       "get_ip_info_ref01": {
         "asn": {},
         "company": {},
-        "elapsed_m": 562,
+        "elapsed_ms": 562,
         "ip": "s233",
         "is_abuser": true,
         "is_bogon": false,

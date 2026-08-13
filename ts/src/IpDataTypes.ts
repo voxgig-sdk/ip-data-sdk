@@ -8,7 +8,7 @@
 export interface GetIpInfo {
   asn?: Record<string, any>
   company?: Record<string, any>
-  elapsed_m?: number
+  elapsed_ms?: number
   ip?: string
   is_abuser?: boolean
   is_bogon?: boolean
@@ -25,7 +25,7 @@ export interface GetIpInfo {
 export interface GetIpInfoLoadMatch {
   asn?: Record<string, any>
   company?: Record<string, any>
-  elapsed_m?: number
+  elapsed_ms?: number
   ip?: string
   is_abuser?: boolean
   is_bogon?: boolean

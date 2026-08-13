@@ -36,7 +36,7 @@ client = IpDataSDK.new({
 
 ```ruby
 begin
-  # load returns the bare GetIpInfo record (raises on error).
+  # load returns the ENTITY — call data_get for the GetIpInfo record (raises on error).
   getipinfo = client.GetIpInfo.load()
   puts getipinfo
 rescue => err
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = IpDataSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 getipinfo = client.GetIpInfo.load()
 puts getipinfo
 ```
@@ -240,7 +241,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
+| `elapsed_ms` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -278,7 +279,7 @@ Create an instance: `get_ip_info = client.GetIpInfo`
 | --- | --- | --- |
 | `asn` | `Hash` |  |
 | `company` | `Hash` |  |
-| `elapsed_m` | `Float` |  |
+| `elapsed_ms` | `Float` |  |
 | `ip` | `String` |  |
 | `is_abuser` | `Boolean` |  |
 | `is_bogon` | `Boolean` |  |
@@ -294,7 +295,7 @@ Create an instance: `get_ip_info = client.GetIpInfo`
 #### Example: Load
 
 ```ruby
-# load returns the bare GetIpInfo record (raises on error).
+# load returns the ENTITY — call data_get for the GetIpInfo record (raises on error).
 get_ip_info = client.GetIpInfo.load()
 ```
 

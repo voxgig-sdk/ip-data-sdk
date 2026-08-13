@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# IpData SDK exists test
 
 import pytest
 from ipdata_sdk import IpDataSDK

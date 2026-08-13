@@ -119,7 +119,7 @@ const get_ip_info = client.GetIpInfo()
 | --- | --- | --- | --- |
 | `asn` | `Record<string, any>` | No |  |
 | `company` | `Record<string, any>` | No |  |
-| `elapsed_m` | `number` | No |  |
+| `elapsed_ms` | `number` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `boolean` | No |  |
 | `is_bogon` | `boolean` | No |  |

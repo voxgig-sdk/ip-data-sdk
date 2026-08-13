@@ -35,7 +35,8 @@ func TestGetIpInfoDirect(t *testing.T) {
 		if setup.live {
 			// Live mode is lenient: synthetic IDs frequently 4xx. Skip
 			// rather than fail when the load endpoint isn't reachable with
-			// the IDs we can construct from setup.idmap.
+			// the IDs we can construct from setup.idmap — unless the model
+			// sets main.kit.test.live.strict.
 			if err != nil {
 				t.Skipf("load call failed (likely synthetic IDs against live API): %v", err)
 			}
@@ -97,21 +98,21 @@ func get_ip_infoDirectSetup(mockres any) *get_ip_infoDirectSetupResult {
 	calls := &[]map[string]any{}
 
 	env := envOverride(map[string]any{
-		"IPDATA_TEST_GET_IP_INFO_ENTID": map[string]any{},
-		"IPDATA_TEST_LIVE":    "FALSE",
-		"IPDATA_APIKEY":       "NONE",
+		"IP_DATA_TEST_GET_IP_INFO_ENTID": map[string]any{},
+		"IP_DATA_TEST_LIVE":    "FALSE",
+		"IP_DATA_APIKEY":       "NONE",
 	})
 
-	live := env["IPDATA_TEST_LIVE"] == "TRUE"
+	live := env["IP_DATA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IPDATA_APIKEY"],
+			"apikey": env["IP_DATA_APIKEY"],
 		}
 		client := sdk.NewIpDataSDK(mergedOpts)
 
 		idmap := map[string]any{}
-		if entidRaw, ok := env["IPDATA_TEST_GET_IP_INFO_ENTID"]; ok {
+		if entidRaw, ok := env["IP_DATA_TEST_GET_IP_INFO_ENTID"]; ok {
 			if entidStr, ok := entidRaw.(string); ok && strings.HasPrefix(entidStr, "{") {
 				json.Unmarshal([]byte(entidStr), &idmap)
 			} else if entidMap, ok := entidRaw.(map[string]any); ok {

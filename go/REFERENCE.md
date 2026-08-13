@@ -101,7 +101,7 @@ fmt.Println(getIpInfo.GetName()) // "get_ip_info"
 | --- | --- | --- | --- |
 | `asn` | `map[string]any` | No |  |
 | `company` | `map[string]any` | No |  |
-| `elapsed_m` | `float64` | No |  |
+| `elapsed_ms` | `float64` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `bool` | No |  |
 | `is_bogon` | `bool` | No |  |

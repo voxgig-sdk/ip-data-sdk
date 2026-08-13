@@ -93,7 +93,7 @@ local get_ip_info = client:GetIpInfo(nil)
 | --- | --- | --- | --- |
 | `asn` | `table` | No |  |
 | `company` | `table` | No |  |
-| `elapsed_m` | `number` | No |  |
+| `elapsed_ms` | `number` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `boolean` | No |  |
 | `is_bogon` | `boolean` | No |  |

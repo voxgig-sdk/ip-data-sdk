@@ -9,7 +9,7 @@
 ---@class GetIpInfo
 ---@field asn? table
 ---@field company? table
----@field elapsed_m? number
+---@field elapsed_ms? number
 ---@field ip? string
 ---@field is_abuser? boolean
 ---@field is_bogon? boolean
@@ -25,7 +25,7 @@
 ---@class GetIpInfoLoadMatch
 ---@field asn? table
 ---@field company? table
----@field elapsed_m? number
+---@field elapsed_ms? number
 ---@field ip? string
 ---@field is_abuser? boolean
 ---@field is_bogon? boolean

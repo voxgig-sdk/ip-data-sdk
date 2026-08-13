@@ -49,7 +49,7 @@ class IpDataConfig
             ],
             [
               'active' => true,
-              'name' => 'elapsed_m',
+              'name' => 'elapsed_ms',
               'req' => false,
               'type' => '`$NUMBER`',
               'index$' => 2,
@@ -162,6 +162,7 @@ class IpDataConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
                   'parts' => [],

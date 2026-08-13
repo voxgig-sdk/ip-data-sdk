@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 const client = IpDataSDK.test()
 
 const getipinfo = await client.GetIpInfo().load()
-// getipinfo is a bare entity populated with mock response data
+// getipinfo is the entity, populated with mock response data
+// — call getipinfo.data() for the record itself
 console.log(getipinfo)
 ```
 
@@ -292,7 +293,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `asn` |  |
 | `company` |  |
-| `elapsed_m` |  |
+| `elapsed_ms` |  |
 | `ip` |  |
 | `is_abuser` |  |
 | `is_bogon` |  |
@@ -330,7 +331,7 @@ Create an instance: `const get_ip_info = client.GetIpInfo()`
 | --- | --- | --- |
 | `asn` | `Record<string, any>` |  |
 | `company` | `Record<string, any>` |  |
-| `elapsed_m` | `number` |  |
+| `elapsed_ms` | `number` |  |
 | `ip` | `string` |  |
 | `is_abuser` | `boolean` |  |
 | `is_bogon` | `boolean` |  |

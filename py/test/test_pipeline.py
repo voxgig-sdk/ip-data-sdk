@@ -16,11 +16,11 @@
 import pytest
 
 from ipdata_sdk import IpDataSDK
-from core.error import IpDataError
-from core.result import IpDataResult
-from core.response import IpDataResponse
-from core.spec import IpDataSpec
-from feature.base_feature import IpDataBaseFeature
+from ipdata_sdk.core.error import IpDataError
+from ipdata_sdk.core.result import IpDataResult
+from ipdata_sdk.core.response import IpDataResponse
+from ipdata_sdk.core.spec import IpDataSpec
+from ipdata_sdk.feature.base_feature import IpDataBaseFeature
 
 
 def _client():

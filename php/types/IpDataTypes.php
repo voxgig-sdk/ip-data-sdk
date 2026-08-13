@@ -17,7 +17,7 @@ class GetIpInfo
 {
     public ?array $asn = null;
     public ?array $company = null;
-    public ?float $elapsed_m = null;
+    public ?float $elapsed_ms = null;
     public ?string $ip = null;
     public ?bool $is_abuser = null;
     public ?bool $is_bogon = null;
@@ -36,7 +36,7 @@ class GetIpInfoLoadMatch
 {
     public ?array $asn = null;
     public ?array $company = null;
-    public ?float $elapsed_m = null;
+    public ?float $elapsed_ms = null;
     public ?string $ip = null;
     public ?bool $is_abuser = null;
     public ?bool $is_bogon = null;

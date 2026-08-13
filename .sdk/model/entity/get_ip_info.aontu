@@ -16,7 +16,7 @@ main: kit: entity: get_ip_info: {
       type: "`$OBJECT`"
     }
     {
-      name: "elapsed_m"
+      name: "elapsed_ms"
       req: false
       type: "`$NUMBER`"
     }

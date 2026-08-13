@@ -16,7 +16,7 @@
 # @!attribute [rw] company
 #   @return [Hash, nil]
 #
-# @!attribute [rw] elapsed_m
+# @!attribute [rw] elapsed_ms
 #   @return [Float, nil]
 #
 # @!attribute [rw] ip
@@ -54,7 +54,7 @@
 GetIpInfo = Struct.new(
   :asn,
   :company,
-  :elapsed_m,
+  :elapsed_ms,
   :ip,
   :is_abuser,
   :is_bogon,
@@ -77,7 +77,7 @@ GetIpInfo = Struct.new(
 # @!attribute [rw] company
 #   @return [Hash, nil]
 #
-# @!attribute [rw] elapsed_m
+# @!attribute [rw] elapsed_ms
 #   @return [Float, nil]
 #
 # @!attribute [rw] ip
@@ -115,7 +115,7 @@ GetIpInfo = Struct.new(
 GetIpInfoLoadMatch = Struct.new(
   :asn,
   :company,
-  :elapsed_m,
+  :elapsed_ms,
   :ip,
   :is_abuser,
   :is_bogon,

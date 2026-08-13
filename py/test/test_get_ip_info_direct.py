@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from ipdata_sdk.utility.voxgig_struct import voxgig_struct as vs
 from ipdata_sdk import IpDataSDK
-from core import helpers
+from ipdata_sdk.core import helpers
 from test import runner
 
 
@@ -56,16 +56,16 @@ def _get_ip_info_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "IPDATA_TEST_GET_IP_INFO_ENTID": {},
-        "IPDATA_TEST_LIVE": "FALSE",
-        "IPDATA_APIKEY": "NONE",
+        "IP_DATA_TEST_GET_IP_INFO_ENTID": {},
+        "IP_DATA_TEST_LIVE": "FALSE",
+        "IP_DATA_APIKEY": "NONE",
     })
 
-    live = env.get("IPDATA_TEST_LIVE") == "TRUE"
+    live = env.get("IP_DATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("IPDATA_APIKEY"),
+            "apikey": env.get("IP_DATA_APIKEY"),
         }
         client = IpDataSDK(merged_opts)
         return {

@@ -265,7 +265,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"asn"` |  |
 | `"company"` |  |
-| `"elapsed_m"` |  |
+| `"elapsed_ms"` |  |
 | `"ip"` |  |
 | `"is_abuser"` |  |
 | `"is_bogon"` |  |
@@ -303,7 +303,7 @@ Create an instance: `getIpInfo := client.GetIpInfo(nil)`
 | --- | --- | --- |
 | `asn` | `map[string]any` |  |
 | `company` | `map[string]any` |  |
-| `elapsed_m` | `float64` |  |
+| `elapsed_ms` | `float64` |  |
 | `ip` | `string` |  |
 | `is_abuser` | `bool` |  |
 | `is_bogon` | `bool` |  |

@@ -96,7 +96,7 @@ get_ip_info = client.GetIpInfo
 | --- | --- | --- | --- |
 | `asn` | `Hash` | No |  |
 | `company` | `Hash` | No |  |
-| `elapsed_m` | `Float` | No |  |
+| `elapsed_ms` | `Float` | No |  |
 | `ip` | `String` | No |  |
 | `is_abuser` | `Boolean` | No |  |
 | `is_bogon` | `Boolean` | No |  |

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'IpData',
   }
 
 
@@ -74,7 +74,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "elapsed_m",
+          "name": "elapsed_ms",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 2
@@ -187,6 +187,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/",
               "parts": [],

@@ -44,7 +44,7 @@ module IpDataConfig
             },
             {
               "active" => true,
-              "name" => "elapsed_m",
+              "name" => "elapsed_ms",
               "req" => false,
               "type" => "`$NUMBER`",
               "index$" => 2,
@@ -157,6 +157,7 @@ module IpDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "parts" => [],

@@ -23,8 +23,8 @@ module IpDataTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("IPDATA_TEST_LIVE")
-    override = getenv("IPDATA_TEST_OVERRIDE")
+    live = getenv("IP_DATA_TEST_LIVE")
+    override = getenv("IP_DATA_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module IpDataTestRunner
       end
     end
 
-    explain = getenv("IPDATA_TEST_EXPLAIN")
-    m["IPDATA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("IP_DATA_TEST_EXPLAIN")
+    m["IP_DATA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

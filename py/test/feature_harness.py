@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import IpDataControl
-from core.error import IpDataError
-from core.result import IpDataResult
-from core.spec import IpDataSpec
+from ipdata_sdk.config import make_config
+from ipdata_sdk.features import _make_feature
+from ipdata_sdk.core.control import IpDataControl
+from ipdata_sdk.core.error import IpDataError
+from ipdata_sdk.core.result import IpDataResult
+from ipdata_sdk.core.spec import IpDataSpec
 
 
 # True when this SDK was generated with the named feature.

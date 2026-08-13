@@ -26,8 +26,8 @@ import {
 describe('GetIpInfoEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when IPDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('IPDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when IP_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('IP_DATA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = IpDataSDK.test()
@@ -62,7 +62,7 @@ describe('GetIpInfoEntity', async () => {
     // LOAD
     const get_ip_info_ref01_ent = client.GetIpInfo()
     const get_ip_info_ref01_match_dt0: any = {}
-    const get_ip_info_ref01_data_dt0 = await get_ip_info_ref01_ent.load(get_ip_info_ref01_match_dt0)
+    const get_ip_info_ref01_data_dt0 = (await get_ip_info_ref01_ent.load(get_ip_info_ref01_match_dt0)).data()
     assert(null != get_ip_info_ref01_data_dt0)
 
 

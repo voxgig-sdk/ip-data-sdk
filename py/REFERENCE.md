@@ -90,7 +90,7 @@ get_ip_info = client.GetIpInfo()
 | --- | --- | --- | --- |
 | `asn` | `dict` | No |  |
 | `company` | `dict` | No |  |
-| `elapsed_m` | `float` | No |  |
+| `elapsed_ms` | `float` | No |  |
 | `ip` | `str` | No |  |
 | `is_abuser` | `bool` | No |  |
 | `is_bogon` | `bool` | No |  |

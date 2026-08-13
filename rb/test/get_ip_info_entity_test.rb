@@ -26,7 +26,7 @@ class GetIpInfoEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set IPDATA_TEST_GET_IP_INFO_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set IP_DATA_TEST_GET_IP_INFO_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -74,39 +74,39 @@ def get_ip_info_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["IPDATA_TEST_GET_IP_INFO_ENTID"]
+  entid_env_raw = ENV["IP_DATA_TEST_GET_IP_INFO_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "IPDATA_TEST_GET_IP_INFO_ENTID" => idmap,
-    "IPDATA_TEST_LIVE" => "FALSE",
-    "IPDATA_TEST_EXPLAIN" => "FALSE",
-    "IPDATA_APIKEY" => "NONE",
+    "IP_DATA_TEST_GET_IP_INFO_ENTID" => idmap,
+    "IP_DATA_TEST_LIVE" => "FALSE",
+    "IP_DATA_TEST_EXPLAIN" => "FALSE",
+    "IP_DATA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["IPDATA_TEST_GET_IP_INFO_ENTID"])
+    env["IP_DATA_TEST_GET_IP_INFO_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["IPDATA_TEST_LIVE"] == "TRUE"
+  if env["IP_DATA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IPDATA_APIKEY"],
+        "apikey" => env["IP_DATA_APIKEY"],
       },
       extra || {},
     ])
     client = IpDataSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["IPDATA_TEST_LIVE"] == "TRUE"
+  live = env["IP_DATA_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["IPDATA_TEST_EXPLAIN"] == "TRUE",
+    explain: env["IP_DATA_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

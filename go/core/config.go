@@ -43,7 +43,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "elapsed_m",
+						"name": "elapsed_ms",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 2,
@@ -156,6 +156,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/",
 								"parts": []any{},
@@ -172,7 +173,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

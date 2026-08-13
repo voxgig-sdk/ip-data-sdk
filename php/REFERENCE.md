@@ -95,7 +95,7 @@ $get_ip_info = $client->GetIpInfo();
 | --- | --- | --- | --- |
 | `asn` | `array` | No |  |
 | `company` | `array` | No |  |
-| `elapsed_m` | `float` | No |  |
+| `elapsed_ms` | `float` | No |  |
 | `ip` | `string` | No |  |
 | `is_abuser` | `bool` | No |  |
 | `is_bogon` | `bool` | No |  |

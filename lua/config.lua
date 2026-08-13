@@ -43,7 +43,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "elapsed_m",
+            ["name"] = "elapsed_ms",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 2,
@@ -156,6 +156,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
                 ["parts"] = {},
