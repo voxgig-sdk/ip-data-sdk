@@ -28,7 +28,7 @@ class IpDataSDK
     utility = IpDataUtility.new
     @_utility = utility
 
-    config = IpDataConfig.make_config
+    config = IpDataConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

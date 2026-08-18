@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from ipdata_sdk.config import make_config
+from ipdata_sdk.config import shared_config
 from ipdata_sdk.features import _make_feature
 from ipdata_sdk.core.control import IpDataControl
 from ipdata_sdk.core.error import IpDataError
@@ -24,7 +24,7 @@ from ipdata_sdk.core.spec import IpDataSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

@@ -40,7 +40,7 @@ class IpDataSDK
         $utility = new IpDataUtility();
         $this->_utility = $utility;
 
-        $config = IpDataConfig::make_config();
+        $config = IpDataConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

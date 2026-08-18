@@ -23,7 +23,7 @@ func NewIpDataSDK(options map[string]any) *IpDataSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,
