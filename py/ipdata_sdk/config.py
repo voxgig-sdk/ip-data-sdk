@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "IpData",
+            "slug": "ip-data",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -53,58 +56,72 @@ def make_config():
         "fields": [
           {
             "name": "asn",
+            "short": "Information about the autonomous system that routes the IP address",
             "type": "`$OBJECT`",
           },
           {
             "name": "company",
+            "short": "Information about the organization that owns the IP address (from WHOIS data)",
             "type": "`$OBJECT`",
           },
           {
             "name": "elapsed_ms",
+            "short": "API processing time in milliseconds",
             "type": "`$NUMBER`",
           },
           {
             "name": "ip",
+            "short": "The queried IP address",
             "type": "`$STRING`",
           },
           {
             "name": "is_abuser",
+            "short": "Whether the IP has been involved in malicious activities",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_bogon",
+            "short": "Whether the IP is a bogon (reserved/private IP)",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_crawler",
+            "short": "Whether the IP is from a known web crawler",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_datacenter",
+            "short": "Whether the IP is from a datacenter or hosting provider",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_mobile",
+            "short": "Whether the IP is from a mobile network",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_proxy",
+            "short": "Whether the IP is a known proxy",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_tor",
+            "short": "Whether the IP is a Tor exit node",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "is_vpn",
+            "short": "Whether the IP is from a VPN service",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "location",
+            "short": "Geographic location information for the IP address",
             "type": "`$OBJECT`",
           },
           {
             "name": "rir",
+            "short": "Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC)",
             "type": "`$STRING`",
           },
         ],

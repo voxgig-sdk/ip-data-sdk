@@ -36,84 +36,98 @@
               "active": true,
               "name": "asn",
               "req": false,
+              "short": "Information about the autonomous system that routes the IP address",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "company",
               "req": false,
+              "short": "Information about the organization that owns the IP address (from WHOIS data)",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "elapsed_ms",
               "req": false,
+              "short": "API processing time in milliseconds",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "ip",
               "req": false,
+              "short": "The queried IP address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_abuser",
               "req": false,
+              "short": "Whether the IP has been involved in malicious activities",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_bogon",
               "req": false,
+              "short": "Whether the IP is a bogon (reserved/private IP)",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_crawler",
               "req": false,
+              "short": "Whether the IP is from a known web crawler",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_datacenter",
               "req": false,
+              "short": "Whether the IP is from a datacenter or hosting provider",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_mobile",
               "req": false,
+              "short": "Whether the IP is from a mobile network",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_proxy",
               "req": false,
+              "short": "Whether the IP is a known proxy",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_tor",
               "req": false,
+              "short": "Whether the IP is a Tor exit node",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_vpn",
               "req": false,
+              "short": "Whether the IP is from a VPN service",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Geographic location information for the IP address",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "rir",
               "req": false,
+              "short": "Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC)",
               "type": "`$STRING`"
             }
           ],

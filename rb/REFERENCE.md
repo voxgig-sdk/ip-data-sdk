@@ -94,20 +94,20 @@ get_ip_info = client.GetIpInfo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | `Hash` | No |  |
-| `company` | `Hash` | No |  |
-| `elapsed_ms` | `Float` | No |  |
-| `ip` | `String` | No |  |
-| `is_abuser` | `Boolean` | No |  |
-| `is_bogon` | `Boolean` | No |  |
-| `is_crawler` | `Boolean` | No |  |
-| `is_datacenter` | `Boolean` | No |  |
-| `is_mobile` | `Boolean` | No |  |
-| `is_proxy` | `Boolean` | No |  |
-| `is_tor` | `Boolean` | No |  |
-| `is_vpn` | `Boolean` | No |  |
-| `location` | `Hash` | No |  |
-| `rir` | `String` | No |  |
+| `asn` | `Hash` | No | Information about the autonomous system that routes the IP address |
+| `company` | `Hash` | No | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `Float` | No | API processing time in milliseconds |
+| `ip` | `String` | No | The queried IP address |
+| `is_abuser` | `Boolean` | No | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `Boolean` | No | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `Boolean` | No | Whether the IP is from a known web crawler |
+| `is_datacenter` | `Boolean` | No | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `Boolean` | No | Whether the IP is from a mobile network |
+| `is_proxy` | `Boolean` | No | Whether the IP is a known proxy |
+| `is_tor` | `Boolean` | No | Whether the IP is a Tor exit node |
+| `is_vpn` | `Boolean` | No | Whether the IP is from a VPN service |
+| `location` | `Hash` | No | Geographic location information for the IP address |
+| `rir` | `String` | No | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 ### Operations
 

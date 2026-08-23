@@ -117,20 +117,20 @@ const get_ip_info = client.GetIpInfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | `Record<string, any>` | No |  |
-| `company` | `Record<string, any>` | No |  |
-| `elapsed_ms` | `number` | No |  |
-| `ip` | `string` | No |  |
-| `is_abuser` | `boolean` | No |  |
-| `is_bogon` | `boolean` | No |  |
-| `is_crawler` | `boolean` | No |  |
-| `is_datacenter` | `boolean` | No |  |
-| `is_mobile` | `boolean` | No |  |
-| `is_proxy` | `boolean` | No |  |
-| `is_tor` | `boolean` | No |  |
-| `is_vpn` | `boolean` | No |  |
-| `location` | `Record<string, any>` | No |  |
-| `rir` | `string` | No |  |
+| `asn` | `Record<string, any>` | No | Information about the autonomous system that routes the IP address |
+| `company` | `Record<string, any>` | No | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `number` | No | API processing time in milliseconds |
+| `ip` | `string` | No | The queried IP address |
+| `is_abuser` | `boolean` | No | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `boolean` | No | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `boolean` | No | Whether the IP is from a known web crawler |
+| `is_datacenter` | `boolean` | No | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `boolean` | No | Whether the IP is from a mobile network |
+| `is_proxy` | `boolean` | No | Whether the IP is a known proxy |
+| `is_tor` | `boolean` | No | Whether the IP is a Tor exit node |
+| `is_vpn` | `boolean` | No | Whether the IP is from a VPN service |
+| `location` | `Record<string, any>` | No | Geographic location information for the IP address |
+| `rir` | `string` | No | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 ### Operations
 

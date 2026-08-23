@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "IpData",
+			"slug": "ip-data",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -36,58 +39,72 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "asn",
+						"short": "Information about the autonomous system that routes the IP address",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "company",
+						"short": "Information about the organization that owns the IP address (from WHOIS data)",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "elapsed_ms",
+						"short": "API processing time in milliseconds",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "ip",
+						"short": "The queried IP address",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "is_abuser",
+						"short": "Whether the IP has been involved in malicious activities",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_bogon",
+						"short": "Whether the IP is a bogon (reserved/private IP)",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_crawler",
+						"short": "Whether the IP is from a known web crawler",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_datacenter",
+						"short": "Whether the IP is from a datacenter or hosting provider",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_mobile",
+						"short": "Whether the IP is from a mobile network",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_proxy",
+						"short": "Whether the IP is a known proxy",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_tor",
+						"short": "Whether the IP is a Tor exit node",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_vpn",
+						"short": "Whether the IP is from a VPN service",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Geographic location information for the IP address",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "rir",
+						"short": "Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC)",
 						"type": "`$STRING`",
 					},
 				},

@@ -229,20 +229,20 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `company` |  |
-| `elapsed_ms` |  |
-| `ip` |  |
-| `is_abuser` |  |
-| `is_bogon` |  |
-| `is_crawler` |  |
-| `is_datacenter` |  |
-| `is_mobile` |  |
-| `is_proxy` |  |
-| `is_tor` |  |
-| `is_vpn` |  |
-| `location` |  |
-| `rir` |  |
+| `asn` | Information about the autonomous system that routes the IP address |
+| `company` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | API processing time in milliseconds |
+| `ip` | The queried IP address |
+| `is_abuser` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | Whether the IP is from a known web crawler |
+| `is_datacenter` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | Whether the IP is from a mobile network |
+| `is_proxy` | Whether the IP is a known proxy |
+| `is_tor` | Whether the IP is a Tor exit node |
+| `is_vpn` | Whether the IP is from a VPN service |
+| `location` | Geographic location information for the IP address |
+| `rir` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 Operations: Load.
 
@@ -267,20 +267,20 @@ Create an instance: `local get_ip_info = client:GetIpInfo(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `table` |  |
-| `company` | `table` |  |
-| `elapsed_ms` | `number` |  |
-| `ip` | `string` |  |
-| `is_abuser` | `boolean` |  |
-| `is_bogon` | `boolean` |  |
-| `is_crawler` | `boolean` |  |
-| `is_datacenter` | `boolean` |  |
-| `is_mobile` | `boolean` |  |
-| `is_proxy` | `boolean` |  |
-| `is_tor` | `boolean` |  |
-| `is_vpn` | `boolean` |  |
-| `location` | `table` |  |
-| `rir` | `string` |  |
+| `asn` | `table` | Information about the autonomous system that routes the IP address |
+| `company` | `table` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `number` | API processing time in milliseconds |
+| `ip` | `string` | The queried IP address |
+| `is_abuser` | `boolean` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `boolean` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `boolean` | Whether the IP is from a known web crawler |
+| `is_datacenter` | `boolean` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `boolean` | Whether the IP is from a mobile network |
+| `is_proxy` | `boolean` | Whether the IP is a known proxy |
+| `is_tor` | `boolean` | Whether the IP is a Tor exit node |
+| `is_vpn` | `boolean` | Whether the IP is from a VPN service |
+| `location` | `table` | Geographic location information for the IP address |
+| `rir` | `string` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 #### Example: Load
 

@@ -249,20 +249,20 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `company` |  |
-| `elapsed_ms` |  |
-| `ip` |  |
-| `is_abuser` |  |
-| `is_bogon` |  |
-| `is_crawler` |  |
-| `is_datacenter` |  |
-| `is_mobile` |  |
-| `is_proxy` |  |
-| `is_tor` |  |
-| `is_vpn` |  |
-| `location` |  |
-| `rir` |  |
+| `asn` | Information about the autonomous system that routes the IP address |
+| `company` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | API processing time in milliseconds |
+| `ip` | The queried IP address |
+| `is_abuser` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | Whether the IP is from a known web crawler |
+| `is_datacenter` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | Whether the IP is from a mobile network |
+| `is_proxy` | Whether the IP is a known proxy |
+| `is_tor` | Whether the IP is a Tor exit node |
+| `is_vpn` | Whether the IP is from a VPN service |
+| `location` | Geographic location information for the IP address |
+| `rir` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 Operations: Load.
 
@@ -287,20 +287,20 @@ Create an instance: `$get_ip_info = $client->GetIpInfo();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `array` |  |
-| `company` | `array` |  |
-| `elapsed_ms` | `float` |  |
-| `ip` | `string` |  |
-| `is_abuser` | `bool` |  |
-| `is_bogon` | `bool` |  |
-| `is_crawler` | `bool` |  |
-| `is_datacenter` | `bool` |  |
-| `is_mobile` | `bool` |  |
-| `is_proxy` | `bool` |  |
-| `is_tor` | `bool` |  |
-| `is_vpn` | `bool` |  |
-| `location` | `array` |  |
-| `rir` | `string` |  |
+| `asn` | `array` | Information about the autonomous system that routes the IP address |
+| `company` | `array` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `float` | API processing time in milliseconds |
+| `ip` | `string` | The queried IP address |
+| `is_abuser` | `bool` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `bool` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `bool` | Whether the IP is from a known web crawler |
+| `is_datacenter` | `bool` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `bool` | Whether the IP is from a mobile network |
+| `is_proxy` | `bool` | Whether the IP is a known proxy |
+| `is_tor` | `bool` | Whether the IP is a Tor exit node |
+| `is_vpn` | `bool` | Whether the IP is from a VPN service |
+| `location` | `array` | Geographic location information for the IP address |
+| `rir` | `string` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 #### Example: Load
 

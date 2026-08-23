@@ -239,20 +239,20 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `company` |  |
-| `elapsed_ms` |  |
-| `ip` |  |
-| `is_abuser` |  |
-| `is_bogon` |  |
-| `is_crawler` |  |
-| `is_datacenter` |  |
-| `is_mobile` |  |
-| `is_proxy` |  |
-| `is_tor` |  |
-| `is_vpn` |  |
-| `location` |  |
-| `rir` |  |
+| `asn` | Information about the autonomous system that routes the IP address |
+| `company` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | API processing time in milliseconds |
+| `ip` | The queried IP address |
+| `is_abuser` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | Whether the IP is from a known web crawler |
+| `is_datacenter` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | Whether the IP is from a mobile network |
+| `is_proxy` | Whether the IP is a known proxy |
+| `is_tor` | Whether the IP is a Tor exit node |
+| `is_vpn` | Whether the IP is from a VPN service |
+| `location` | Geographic location information for the IP address |
+| `rir` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 Operations: Load.
 
@@ -277,20 +277,20 @@ Create an instance: `get_ip_info = client.GetIpInfo`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `Hash` |  |
-| `company` | `Hash` |  |
-| `elapsed_ms` | `Float` |  |
-| `ip` | `String` |  |
-| `is_abuser` | `Boolean` |  |
-| `is_bogon` | `Boolean` |  |
-| `is_crawler` | `Boolean` |  |
-| `is_datacenter` | `Boolean` |  |
-| `is_mobile` | `Boolean` |  |
-| `is_proxy` | `Boolean` |  |
-| `is_tor` | `Boolean` |  |
-| `is_vpn` | `Boolean` |  |
-| `location` | `Hash` |  |
-| `rir` | `String` |  |
+| `asn` | `Hash` | Information about the autonomous system that routes the IP address |
+| `company` | `Hash` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `Float` | API processing time in milliseconds |
+| `ip` | `String` | The queried IP address |
+| `is_abuser` | `Boolean` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `Boolean` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `Boolean` | Whether the IP is from a known web crawler |
+| `is_datacenter` | `Boolean` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `Boolean` | Whether the IP is from a mobile network |
+| `is_proxy` | `Boolean` | Whether the IP is a known proxy |
+| `is_tor` | `Boolean` | Whether the IP is a Tor exit node |
+| `is_vpn` | `Boolean` | Whether the IP is from a VPN service |
+| `location` | `Hash` | Geographic location information for the IP address |
+| `rir` | `String` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 #### Example: Load
 

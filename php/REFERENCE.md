@@ -93,20 +93,20 @@ $get_ip_info = $client->GetIpInfo();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | `array` | No |  |
-| `company` | `array` | No |  |
-| `elapsed_ms` | `float` | No |  |
-| `ip` | `string` | No |  |
-| `is_abuser` | `bool` | No |  |
-| `is_bogon` | `bool` | No |  |
-| `is_crawler` | `bool` | No |  |
-| `is_datacenter` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
-| `is_proxy` | `bool` | No |  |
-| `is_tor` | `bool` | No |  |
-| `is_vpn` | `bool` | No |  |
-| `location` | `array` | No |  |
-| `rir` | `string` | No |  |
+| `asn` | `array` | No | Information about the autonomous system that routes the IP address |
+| `company` | `array` | No | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `float` | No | API processing time in milliseconds |
+| `ip` | `string` | No | The queried IP address |
+| `is_abuser` | `bool` | No | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `bool` | No | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `bool` | No | Whether the IP is from a known web crawler |
+| `is_datacenter` | `bool` | No | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `bool` | No | Whether the IP is from a mobile network |
+| `is_proxy` | `bool` | No | Whether the IP is a known proxy |
+| `is_tor` | `bool` | No | Whether the IP is a Tor exit node |
+| `is_vpn` | `bool` | No | Whether the IP is from a VPN service |
+| `location` | `array` | No | Geographic location information for the IP address |
+| `rir` | `string` | No | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 ### Operations
 

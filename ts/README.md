@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -291,20 +291,20 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `company` |  |
-| `elapsed_ms` |  |
-| `ip` |  |
-| `is_abuser` |  |
-| `is_bogon` |  |
-| `is_crawler` |  |
-| `is_datacenter` |  |
-| `is_mobile` |  |
-| `is_proxy` |  |
-| `is_tor` |  |
-| `is_vpn` |  |
-| `location` |  |
-| `rir` |  |
+| `asn` | Information about the autonomous system that routes the IP address |
+| `company` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | API processing time in milliseconds |
+| `ip` | The queried IP address |
+| `is_abuser` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | Whether the IP is from a known web crawler |
+| `is_datacenter` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | Whether the IP is from a mobile network |
+| `is_proxy` | Whether the IP is a known proxy |
+| `is_tor` | Whether the IP is a Tor exit node |
+| `is_vpn` | Whether the IP is from a VPN service |
+| `location` | Geographic location information for the IP address |
+| `rir` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 Operations: load.
 
@@ -329,20 +329,20 @@ Create an instance: `const get_ip_info = client.GetIpInfo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `Record<string, any>` |  |
-| `company` | `Record<string, any>` |  |
-| `elapsed_ms` | `number` |  |
-| `ip` | `string` |  |
-| `is_abuser` | `boolean` |  |
-| `is_bogon` | `boolean` |  |
-| `is_crawler` | `boolean` |  |
-| `is_datacenter` | `boolean` |  |
-| `is_mobile` | `boolean` |  |
-| `is_proxy` | `boolean` |  |
-| `is_tor` | `boolean` |  |
-| `is_vpn` | `boolean` |  |
-| `location` | `Record<string, any>` |  |
-| `rir` | `string` |  |
+| `asn` | `Record<string, any>` | Information about the autonomous system that routes the IP address |
+| `company` | `Record<string, any>` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `number` | API processing time in milliseconds |
+| `ip` | `string` | The queried IP address |
+| `is_abuser` | `boolean` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `boolean` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `boolean` | Whether the IP is from a known web crawler |
+| `is_datacenter` | `boolean` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `boolean` | Whether the IP is from a mobile network |
+| `is_proxy` | `boolean` | Whether the IP is a known proxy |
+| `is_tor` | `boolean` | Whether the IP is a Tor exit node |
+| `is_vpn` | `boolean` | Whether the IP is from a VPN service |
+| `location` | `Record<string, any>` | Geographic location information for the IP address |
+| `rir` | `string` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 #### Example: Load
 

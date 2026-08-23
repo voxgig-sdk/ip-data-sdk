@@ -6,7 +6,7 @@ The Golang SDK for the IpData API — an entity-oriented client using standard G
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.GetIpInfo(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -263,20 +263,20 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"asn"` |  |
-| `"company"` |  |
-| `"elapsed_ms"` |  |
-| `"ip"` |  |
-| `"is_abuser"` |  |
-| `"is_bogon"` |  |
-| `"is_crawler"` |  |
-| `"is_datacenter"` |  |
-| `"is_mobile"` |  |
-| `"is_proxy"` |  |
-| `"is_tor"` |  |
-| `"is_vpn"` |  |
-| `"location"` |  |
-| `"rir"` |  |
+| `"asn"` | Information about the autonomous system that routes the IP address |
+| `"company"` | Information about the organization that owns the IP address (from WHOIS data) |
+| `"elapsed_ms"` | API processing time in milliseconds |
+| `"ip"` | The queried IP address |
+| `"is_abuser"` | Whether the IP has been involved in malicious activities |
+| `"is_bogon"` | Whether the IP is a bogon (reserved/private IP) |
+| `"is_crawler"` | Whether the IP is from a known web crawler |
+| `"is_datacenter"` | Whether the IP is from a datacenter or hosting provider |
+| `"is_mobile"` | Whether the IP is from a mobile network |
+| `"is_proxy"` | Whether the IP is a known proxy |
+| `"is_tor"` | Whether the IP is a Tor exit node |
+| `"is_vpn"` | Whether the IP is from a VPN service |
+| `"location"` | Geographic location information for the IP address |
+| `"rir"` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 Operations: Load.
 
@@ -301,20 +301,20 @@ Create an instance: `getIpInfo := client.GetIpInfo(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `map[string]any` |  |
-| `company` | `map[string]any` |  |
-| `elapsed_ms` | `float64` |  |
-| `ip` | `string` |  |
-| `is_abuser` | `bool` |  |
-| `is_bogon` | `bool` |  |
-| `is_crawler` | `bool` |  |
-| `is_datacenter` | `bool` |  |
-| `is_mobile` | `bool` |  |
-| `is_proxy` | `bool` |  |
-| `is_tor` | `bool` |  |
-| `is_vpn` | `bool` |  |
-| `location` | `map[string]any` |  |
-| `rir` | `string` |  |
+| `asn` | `map[string]any` | Information about the autonomous system that routes the IP address |
+| `company` | `map[string]any` | Information about the organization that owns the IP address (from WHOIS data) |
+| `elapsed_ms` | `float64` | API processing time in milliseconds |
+| `ip` | `string` | The queried IP address |
+| `is_abuser` | `bool` | Whether the IP has been involved in malicious activities |
+| `is_bogon` | `bool` | Whether the IP is a bogon (reserved/private IP) |
+| `is_crawler` | `bool` | Whether the IP is from a known web crawler |
+| `is_datacenter` | `bool` | Whether the IP is from a datacenter or hosting provider |
+| `is_mobile` | `bool` | Whether the IP is from a mobile network |
+| `is_proxy` | `bool` | Whether the IP is a known proxy |
+| `is_tor` | `bool` | Whether the IP is a Tor exit node |
+| `is_vpn` | `bool` | Whether the IP is from a VPN service |
+| `location` | `map[string]any` | Geographic location information for the IP address |
+| `rir` | `string` | Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC) |
 
 #### Example: Load
 
