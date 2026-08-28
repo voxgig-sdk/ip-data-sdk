@@ -71,62 +71,14 @@ GetIpInfo = Struct.new(
 
 # Request payload for GetIpInfo#load.
 #
-# @!attribute [rw] asn
-#   @return [Hash, nil]
-#
-# @!attribute [rw] company
-#   @return [Hash, nil]
-#
-# @!attribute [rw] elapsed_ms
-#   @return [Float, nil]
-#
-# @!attribute [rw] ip
+# @!attribute [rw] format
 #   @return [String, nil]
 #
-# @!attribute [rw] is_abuser
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_bogon
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_crawler
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_datacenter
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_mobile
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_proxy
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_tor
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] is_vpn
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] location
-#   @return [Hash, nil]
-#
-# @!attribute [rw] rir
+# @!attribute [rw] q
 #   @return [String, nil]
 GetIpInfoLoadMatch = Struct.new(
-  :asn,
-  :company,
-  :elapsed_ms,
-  :ip,
-  :is_abuser,
-  :is_bogon,
-  :is_crawler,
-  :is_datacenter,
-  :is_mobile,
-  :is_proxy,
-  :is_tor,
-  :is_vpn,
-  :location,
-  :rir,
+  :format,
+  :q,
   keyword_init: true
 )
 

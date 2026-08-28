@@ -34,17 +34,5 @@ class GetIpInfo(TypedDict, total=False):
 
 
 class GetIpInfoLoadMatch(TypedDict, total=False):
-    asn: dict
-    company: dict
-    elapsed_ms: float
-    ip: str
-    is_abuser: bool
-    is_bogon: bool
-    is_crawler: bool
-    is_datacenter: bool
-    is_mobile: bool
-    is_proxy: bool
-    is_tor: bool
-    is_vpn: bool
-    location: dict
-    rir: str
+    format: str
+    q: str

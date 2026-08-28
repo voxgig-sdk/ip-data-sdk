@@ -32,20 +32,8 @@ type GetIpInfo struct {
 
 // GetIpInfoLoadMatch is the typed request payload for GetIpInfo.LoadTyped.
 type GetIpInfoLoadMatch struct {
-	Asn *map[string]any `json:"asn,omitempty"`
-	Company *map[string]any `json:"company,omitempty"`
-	ElapsedMs *float64 `json:"elapsed_ms,omitempty"`
-	Ip *string `json:"ip,omitempty"`
-	IsAbuser *bool `json:"is_abuser,omitempty"`
-	IsBogon *bool `json:"is_bogon,omitempty"`
-	IsCrawler *bool `json:"is_crawler,omitempty"`
-	IsDatacenter *bool `json:"is_datacenter,omitempty"`
-	IsMobile *bool `json:"is_mobile,omitempty"`
-	IsProxy *bool `json:"is_proxy,omitempty"`
-	IsTor *bool `json:"is_tor,omitempty"`
-	IsVpn *bool `json:"is_vpn,omitempty"`
-	Location *map[string]any `json:"location,omitempty"`
-	Rir *string `json:"rir,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Q *string `json:"q,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

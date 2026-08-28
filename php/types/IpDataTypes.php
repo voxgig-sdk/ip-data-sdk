@@ -34,19 +34,7 @@ class GetIpInfo
 /** Request payload for GetIpInfo#load. */
 class GetIpInfoLoadMatch
 {
-    public ?array $asn = null;
-    public ?array $company = null;
-    public ?float $elapsed_ms = null;
-    public ?string $ip = null;
-    public ?bool $is_abuser = null;
-    public ?bool $is_bogon = null;
-    public ?bool $is_crawler = null;
-    public ?bool $is_datacenter = null;
-    public ?bool $is_mobile = null;
-    public ?bool $is_proxy = null;
-    public ?bool $is_tor = null;
-    public ?bool $is_vpn = null;
-    public ?array $location = null;
-    public ?string $rir = null;
+    public ?string $format = null;
+    public ?string $q = null;
 }
 
