@@ -67,15 +67,17 @@ function get_ip_info_direct_setup($mockres)
     $env = Runner::env_override([
         "IP_DATA_TEST_GET_IP_INFO_ENTID" => [],
         "IP_DATA_TEST_LIVE" => "FALSE",
-        "IP_DATA_APIKEY" => "NONE",
+        "IP_DATA_APIKEY" => "",
     ]);
 
     $live = $env["IP_DATA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
-        $merged_opts = [
+        // Merged so the generated fields win: sdk-test-control.json's
+        // test.client.options adds to the live client, it does not redirect it.
+        $merged_opts = array_merge(Runner::live_client_options(), [
             "apikey" => $env["IP_DATA_APIKEY"],
-        ];
+        ]);
         $client = new IpDataSDK($merged_opts);
         return [
             "client" => $client,
