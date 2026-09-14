@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IpDataSDK } from '@voxgig-sdk/ip-data'
+import { IpDataSDK } from '@voxgig-sdk/ip-data-sdk'
 
 const client = new IpDataSDK({
   apikey: process.env.IP_DATA_APIKEY,
@@ -433,7 +433,7 @@ ip-data/
 Import the SDK from the package root:
 
 ```ts
-import { IpDataSDK } from '@voxgig-sdk/ip-data'
+import { IpDataSDK } from '@voxgig-sdk/ip-data-sdk'
 ```
 
 ### Entity state

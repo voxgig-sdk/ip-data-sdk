@@ -105,7 +105,7 @@ local result, err = client:GetIpInfo():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ip-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ip-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-data-sdk/releases) |
 | Python | `voxgig-sdk-ip-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-data-sdk/releases) |
 | PHP | `voxgig-sdk/ip-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-data-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ip-data-sdk/go` | `go get github.com/voxgig-sdk/ip-data-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:GetIpInfo():load()
 ### TypeScript
 
 ```ts
-import { IpDataSDK } from '@voxgig-sdk/ip-data'
+import { IpDataSDK } from '@voxgig-sdk/ip-data-sdk'
 
 const client = new IpDataSDK({
   apikey: process.env.IP_DATA_APIKEY,
