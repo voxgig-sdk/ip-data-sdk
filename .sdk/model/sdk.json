@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "get_ip_info": {
           "active": true,
@@ -161,6 +225,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /",
+                    "json": "{\"operationId\":\"getIpInfo\",\"parameters\":[{\"description\":\"The IP address (IPv4 or IPv6) or ASN to query. If not provided, returns information about the requester's IP address.\",\"in\":\"query\",\"name\":\"q\",\"required\":false,\"schema\":{\"example\":\"23.236.48.55\",\"type\":\"string\"}},{\"description\":\"Output format for the response\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"json\",\"html\",\"toon\",\"text\",\"csv\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"summary\":\"Example IP lookup response\",\"value\":{\"asn\":{\"abuse\":\"abuse@akamai.com\",\"active\":true,\"asn\":20940,\"country\":\"US\",\"created\":\"2001-09-25\",\"descr\":\"AKAMAI-ASN1\",\"domain\":\"akamai.com\",\"org\":\"Akamai International B.V.\",\"rir\":\"ARIN\",\"route\":\"23.236.48.0/20\",\"type\":\"hosting\",\"updated\":\"2023-08-03\",\"whois\":\"https://ipapi.is/whois/AS20940\"},\"company\":{\"abuser_score\":\"0.00\",\"domain\":\"akamai.com\",\"name\":\"Akamai Technologies Inc.\",\"network\":\"23.0.0.0/8\",\"type\":\"hosting\",\"whois\":\"https://ipapi.is/whois/23.236.48.55\"},\"elapsed_ms\":1.02,\"ip\":\"23.236.48.55\",\"is_abuser\":false,\"is_bogon\":false,\"is_crawler\":false,\"is_datacenter\":true,\"is_mobile\":false,\"is_proxy\":false,\"is_tor\":false,\"is_vpn\":false,\"location\":{\"city\":\"Los Angeles\",\"continent\":\"NA\",\"country\":\"US\",\"country_name\":\"United States\",\"is_dst\":true,\"latitude\":34.0522,\"local_time\":\"2023-08-15T10:30:00-07:00\",\"local_time_unix\":1692122400,\"longitude\":-118.2437,\"state\":\"California\",\"timezone\":\"America/Los_Angeles\",\"zip\":\"90001\"},\"rir\":\"ARIN\"}}},\"schema\":{\"properties\":{\"asn\":{\"description\":\"Information about the autonomous system that routes the IP address\",\"properties\":{\"abuse\":{\"description\":\"Abuse contact email\",\"type\":\"string\"},\"active\":{\"description\":\"Whether the ASN is currently active\",\"type\":\"boolean\"},\"asn\":{\"description\":\"Autonomous System Number\",\"type\":\"integer\"},\"country\":{\"description\":\"Country code of the ASN\",\"type\":\"string\"},\"created\":{\"description\":\"Date when the ASN was created\",\"format\":\"date\",\"type\":\"string\"},\"descr\":{\"description\":\"Description of the ASN\",\"type\":\"string\"},\"domain\":{\"description\":\"Domain of the organization\",\"type\":\"string\"},\"org\":{\"description\":\"Organization name associated with the ASN\",\"type\":\"string\"},\"rir\":{\"description\":\"Regional Internet Registry\",\"type\":\"string\"},\"route\":{\"description\":\"Route or prefix in CIDR notation\",\"type\":\"string\"},\"type\":{\"description\":\"Type of ASN\",\"enum\":[\"isp\",\"hosting\",\"business\",\"education\",\"government\"],\"type\":\"string\"},\"updated\":{\"description\":\"Date when the ASN was last updated\",\"format\":\"date\",\"type\":\"string\"},\"whois\":{\"description\":\"URL to ASN WHOIS information\",\"type\":\"string\"}},\"type\":\"object\"},\"company\":{\"description\":\"Information about the organization that owns the IP address (from WHOIS data)\",\"properties\":{\"abuser_score\":{\"description\":\"Abuse score for the organization\",\"type\":\"string\"},\"domain\":{\"description\":\"Domain name of the organization\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the organization owning the IP\",\"type\":\"string\"},\"network\":{\"description\":\"Network range in CIDR notation\",\"type\":\"string\"},\"type\":{\"description\":\"Type of organization\",\"enum\":[\"isp\",\"hosting\",\"business\",\"education\",\"government\"],\"type\":\"string\"},\"whois\":{\"description\":\"URL to WHOIS information\",\"type\":\"string\"}},\"type\":\"object\"},\"elapsed_ms\":{\"description\":\"API processing time in milliseconds\",\"type\":\"number\"},\"ip\":{\"description\":\"The queried IP address\",\"type\":\"string\"},\"is_abuser\":{\"description\":\"Whether the IP has been involved in malicious activities\",\"type\":\"boolean\"},\"is_bogon\":{\"description\":\"Whether the IP is a bogon (reserved/private IP)\",\"type\":\"boolean\"},\"is_crawler\":{\"description\":\"Whether the IP is from a known web crawler\",\"type\":\"boolean\"},\"is_datacenter\":{\"description\":\"Whether the IP is from a datacenter or hosting provider\",\"type\":\"boolean\"},\"is_mobile\":{\"description\":\"Whether the IP is from a mobile network\",\"type\":\"boolean\"},\"is_proxy\":{\"description\":\"Whether the IP is a known proxy\",\"type\":\"boolean\"},\"is_tor\":{\"description\":\"Whether the IP is a Tor exit node\",\"type\":\"boolean\"},\"is_vpn\":{\"description\":\"Whether the IP is from a VPN service\",\"type\":\"boolean\"},\"location\":{\"description\":\"Geographic location information for the IP address\",\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"continent\":{\"description\":\"Continent code (e.g., NA, EU, AS)\",\"type\":\"string\"},\"country\":{\"description\":\"ISO 3166-1 alpha-2 country code\",\"type\":\"string\"},\"country_name\":{\"description\":\"Full country name\",\"type\":\"string\"},\"is_dst\":{\"description\":\"Whether daylight saving time is active\",\"type\":\"boolean\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"local_time\":{\"description\":\"Local time in ISO 8601 format\",\"format\":\"date-time\",\"type\":\"string\"},\"local_time_unix\":{\"description\":\"Local time as Unix timestamp\",\"type\":\"integer\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"state\":{\"description\":\"State or region name\",\"type\":\"string\"},\"timezone\":{\"description\":\"IANA timezone identifier\",\"type\":\"string\"},\"zip\":{\"description\":\"Postal/ZIP code\",\"type\":\"string\"}},\"type\":\"object\"},\"rir\":{\"description\":\"Regional Internet Registry (ARIN, APNIC, RIPE, AFRINIC, LACNIC)\",\"enum\":[\"ARIN\",\"APNIC\",\"RIPE\",\"AFRINIC\",\"LACNIC\"],\"type\":\"string\"}},\"type\":\"object\"}},\"text/csv\":{\"schema\":{\"type\":\"string\"}},\"text/html\":{\"schema\":{\"type\":\"string\"}},\"text/plain\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Successful response with IP address information\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid IP address or parameters\"},\"401\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Unauthorized - invalid or missing API key\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"security\":[{\"ApiKeyAuth\":[]},{}],\"securitySchemes\":{\"ApiKeyAuth\":{\"description\":\"API key for authentication. Free tier provides 1,000 requests per day. Sign up at https://ipapi.is/ to get your API key.\",\"in\":\"query\",\"name\":\"key\",\"type\":\"apiKey\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/",
@@ -185,13 +255,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -282,6 +562,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -354,6 +730,48 @@
         "website": "https://ipapi.is/"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -908,6 +1326,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -949,7 +1368,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }
