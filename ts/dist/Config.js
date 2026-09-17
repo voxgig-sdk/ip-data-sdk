@@ -104,6 +104,8 @@ class Config {
         base: "https://api.ipapi.is",
         auth: {
             prefix: '',
+            in: 'query',
+            name: 'key',
         },
         headers: {
             "content-type": "application/json"

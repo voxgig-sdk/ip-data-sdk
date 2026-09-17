@@ -123,6 +123,8 @@ class Config {
 
     auth: {
       prefix: '',
+      in: 'query',
+      name: 'key',
     },
 
     headers: {
@@ -131,9 +133,9 @@ class Config {
 
     entity: {
       
-      get_ip_info: {
-      },
-
+        get_ip_info: {
+        },
+  
     }
   }
 
